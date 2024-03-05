@@ -1,0 +1,12 @@
+{
+  "name": "bookish-spoon",
+  "version": "1.0.0",
+  "description": "This Web application will have the following:",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
