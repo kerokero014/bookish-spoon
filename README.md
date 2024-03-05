@@ -1,4 +1,4 @@
-# bookish-spoon / CookBook Web Application
+# bookish-spoon
 ### CookBook Web Application - BackEnd Working Station
 
 This Web application will have the following: 
