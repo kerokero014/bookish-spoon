@@ -21,4 +21,4 @@ Sources:
 
 * [JWT & OAuth ](https://frontegg.com/blog/oauth-vs-jwt)
 * [Project Specs & Reqs](https://cse341.netlify.app/projects) 
-* [swagger & OAuth] (https://swagger.io/docs/specification/authentication/oauth2/)
+* [swagger & OAuth](https://swagger.io/docs/specification/authentication/oauth2/)
