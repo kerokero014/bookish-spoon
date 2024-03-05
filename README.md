@@ -1,4 +1,4 @@
-# bookish-spoon
+# bookish-spoon / CookBook Web Application
 ### CookBook Web Application - BackEnd Working Station
 
 This Web application will have the following: 
@@ -9,7 +9,7 @@ CRUD opeartions usable with MongoDB
 -  recipes
 
 AuthO will be used along side with JWTs for authorization. 
-
+Swagger & API Documentation for Front End usage
 
 
 
