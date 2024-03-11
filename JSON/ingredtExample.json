@@ -1,0 +1,56 @@
+[
+  {
+    "name": "All-purpose flour",
+    "quantity": 1.5,
+    "unit": "cups",
+    "recipeName": "Chocolate Chip Cookies"
+  },
+  {
+    "name": "Unsalted butter, softened",
+    "quantity": 1,
+    "unit": "cup",
+    "recipeName": "Chocolate Chip Cookies"
+  },
+  {
+    "name": "Granulated sugar",
+    "quantity": 1,
+    "unit": "cup",
+    "recipeName": "Chocolate Chip Cookies"
+  },
+  {
+    "name": "Light brown sugar",
+    "quantity": 0.5,
+    "unit": "cup",
+    "recipeName": "Chocolate Chip Cookies"
+  },
+  {
+    "name": "Large eggs",
+    "quantity": 2,
+    "unit": "",
+    "recipeName": "Chocolate Chip Cookies"
+  },
+  {
+    "name": "Vanilla extract",
+    "quantity": 1,
+    "unit": "teaspoon",
+    "recipeName": "Chocolate Chip Cookies"
+  },
+  {
+    "name": "Baking soda",
+    "quantity": 1,
+    "unit": "teaspoon",
+    "recipeName": "Chocolate Chip Cookies"
+  },
+  {
+    "name": "Salt",
+    "quantity": 0.5,
+    "unit": "teaspoon",
+    "recipeName": "Chocolate Chip Cookies"
+  },
+  {
+    "name": "Semi-sweet chocolate chips",
+    "quantity": 2,
+    "unit": "cups",
+    "recipeName": "Chocolate Chip Cookies"
+  }
+]

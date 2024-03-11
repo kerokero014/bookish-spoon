@@ -1,0 +1,68 @@
+POST http://localhost:3000/recipes
+Content-Type: application/json
+
+{
+  "name": "Chicken Alfredo",
+  "description": "Creamy chicken Alfredo pasta dish.",
+  "cookTime": 25,
+  "prepTime": 15,
+  "servings": 4,
+  "instructions": [
+    "Cook fettuccine according to package instructions.",
+    "Season chicken breasts with salt and pepper, then cook in a skillet until golden brown and fully cooked. Set aside.",
+    "In the same skillet, melt butter and sauté minced garlic until fragrant.",
+    "Add heavy cream and bring to a simmer, then stir in grated Parmesan cheese until smooth and creamy.",
+    "Slice cooked chicken and add it back to the skillet, mixing until fully coated in the sauce.",
+    "Add cooked fettuccine to the skillet and toss to combine. Serve immediately, garnished with chopped parsley and additional Parmesan cheese."
+  ],
+  "ingredients": [
+    {
+      "name": "Fettuccine",
+      "quantity": 8,
+      "unit": "ounces"
+    },
+    {
+      "name": "Chicken breasts",
+      "quantity": 2,
+      "unit": "large"
+    },
+    {
+      "name": "Salt",
+      "quantity": 1,
+      "unit": "teaspoon"
+    },
+    {
+      "name": "Black pepper",
+      "quantity": 1,
+      "unit": "teaspoon"
+    },
+    {
+      "name": "Butter",
+      "quantity": 4,
+      "unit": "tablespoons"
+    },
+    {
+      "name": "Garlic",
+      "quantity": 3,
+      "unit": "cloves"
+    },
+    {
+      "name": "Heavy cream",
+      "quantity": 1,
+      "unit": "cup"
+    },
+    {
+      "name": "Parmesan cheese",
+      "quantity": 1,
+      "unit": "cup"
+    },
+    {
+      "name": "Parsley",
+      "quantity": 2,
+      "unit": "tablespoons",
+      "optional": true
+    }
+  ],
+  "categories": ["Italian", "Pasta"]
+}
+
