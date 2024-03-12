@@ -1,8 +1,9 @@
+//Uncomment as you use them then comment out the ones you do not need
 GET http://localhost:3000/users
 
 
-
-//POST http://localhost:4040/users
+//Create a user
+//POST http://localhost:3000/users
 //Content-Type: application/json
 //
 //{
@@ -13,7 +14,9 @@ GET http://localhost:3000/users
 //}
 
 
-//PUT http://localhost:4040/users/65ef53be2515a420828a406b
+
+//update an user
+//PUT http://localhost:3000/users/65ef53be2515a420828a406b
 //Content-Type: application/json
 //
 //{
@@ -22,3 +25,7 @@ GET http://localhost:3000/users
 //  "email": "DayanFrazaojr@hotmail.com",
 //  "password": "NeymarJr10"
 //}
+
+
+//delete an user
+//DELETE http://localhost:3000/users/ <= This is where the id goes

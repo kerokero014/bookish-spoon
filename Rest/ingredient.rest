@@ -1,2 +1,32 @@
-GET  http://localhost:4040/ingredients
+// Comment or uncomment the HTTP request you want to test
+
+//Get all ingredients
+
+GET  http://localhost:3000/ingredients
+
+
+//get single ingredient
+//GET  http://localhost:3000/ingredients/ <= id of the ingredient
+
+
+//create ingredient
+//POST  http://localhost:3000/ingredients
+//content-type: application/json
+
+// {
+    //Refer to JSON folder for input exaple
+// }
+
+
+//update ingredient
+//PUT  http://localhost:3000/ingredients/ <= id of the ingredient
+//content-type: application/json
+
+// {
+    //Refer to JSON folder for input exaple
+// }
+
+//delete ingredient
+
+//DELETE  http://localhost:3000/ingredients/ <= id of the ingredient
 
