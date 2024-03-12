@@ -1,4 +1,5 @@
 //Controller incharge or adding and removing Users from the database
+// Dev: Vishal Vaid
 
 //TODO: GetAll Users function (GET) 
 //TODO: Add Users function (POST)

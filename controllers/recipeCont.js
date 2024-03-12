@@ -1,4 +1,5 @@
 //Controller incharge or adding and removing recipes from the database
+// Dev: Kevin Mendoza
 
 //TODO: GetAll recipes function (GET) 
 //TODO: Add recipes function (POST)

@@ -1,4 +1,5 @@
 //Controller incharge or adding and removing ingredients from the database
+// Dev: Dayan F 
 
 //TODO: GetAll ingredients function (GET) 
 //TODO: Add ingredient function (POST)

@@ -1,4 +1,5 @@
 //Controller incharge or adding and removing posts from the database
+// Dev: Jean Yves 
 
 //TODO: GetAll posts function (GET) 
 //TODO: Add posts function (POST)
