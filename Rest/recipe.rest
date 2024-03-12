@@ -1,12 +1,11 @@
 //Uncomment as you use them then comment out the ones you do not need
 
 //get all recipes
-GET http://localhost:3000/recipes 
+//GET http://localhost:3000/recipes 
 
 
 //get a single recipe
-//GET http://localhost:3000/recipes/ <=id 
-
+//GET http://localhost:3000/recipes/65e66d465af2d1169ad696a0 
 
 
 //create a recipe
