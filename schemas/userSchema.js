@@ -25,15 +25,20 @@ const userSchema = new Schema({
   email: {
     type: String,
     required: true,
-    unique: true
-    //match: [/.+@.+\..+/, "Please enter a valid e-mail address"], // This is a regex to validate the email.(furute implementation)
+    unique: true,
+    match: [/.+@.+\..+/, 'Please enter a valid e-mail address']
+  },
+  recipes: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Recipe'
+    }
+  ],
+  profileCreated: {
+    type: Date,
+    default: Date.now,
+    immutable: true
   }
-  //recipes: [ This would be nice but not necessary for now.
-  //  {
-  //    type: Schema.Types.ObjectId,
-  //    ref: "Recipe",
-  //  },
-  //],
 });
 
 module.exports = mongoose.model('User', userSchema);
