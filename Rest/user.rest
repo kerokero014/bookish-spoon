@@ -1,5 +1,5 @@
 //Uncomment as you use them then comment out the ones you do not need
-GET http://localhost:3000/users
+//GET http://localhost:3000/users
 
 
 //Create a user

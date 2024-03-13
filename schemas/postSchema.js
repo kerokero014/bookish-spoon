@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const postSchema = new Schema({
@@ -6,36 +6,36 @@ const postSchema = new Schema({
     type: String,
     required: true,
     unique: true,
-    minlength: 3,
+    minlength: 3
   },
   content: {
     type: String,
     required: true,
     unique: true,
-    minlength: 3,
+    minlength: 3
   },
   authorid: {
     type: Schema.Types.ObjectId,
-    ref: "User",
+    ref: 'User'
   },
   authorName: {
-    type: String,
+    type: String
   },
   date: {
     type: Date,
     default: Date.now,
-    immutable: true,
+    immutable: true
   },
   recipeid: {
     type: Schema.Types.ObjectId,
-    ref: "Recipe",
+    ref: 'Recipe'
   },
   recipeName: {
-    type: String,
-  },
+    type: String
+  }
   //recipeImage: {   //Image will be implemented it once we figure out where to get the images whether url or byteimg
   //    type: String,
   //},
 });
 
-module.exports = mongoose.model("Post", postSchema);
+module.exports = mongoose.model('Post', postSchema);
