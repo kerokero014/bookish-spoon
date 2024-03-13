@@ -1,0 +1,9 @@
+{
+  "title": "Delicious Recipe",
+  "content": "This is a delicious recipe that you must try!",
+  "authorid": "60b9e5b895305d001f93e96a", 
+  "authorName": "John Doe",
+  "date": "2024-03-12T10:00:00.000Z",
+  "recipeid": "60b9e5b895305d001f93e96b",
+  "recipeName": "Spicy Chicken Curry"
+}
