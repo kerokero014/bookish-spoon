@@ -3,29 +3,32 @@ GET http://localhost:3000/users
 
 
 //Create a user
-//POST http://localhost:3000/users
-//Content-Type: application/json
-//
-//{
-//  "userFirstName": "Vishal",
-//  "userLastName": "Vaid",
-//  "email": "VV@gmail.com",
-//  "password": "Admin2468@"
-//}
+###
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "userFirstName": "ELI",
+  "userLastName": "BURNS",
+  "email": "VV@gmail.com",
+  "password": "Admin2468@"
+}
 
 
 
 //update an user
-//PUT http://localhost:3000/users/65ef53be2515a420828a406b
-//Content-Type: application/json
-//
-//{
-//  "userFirstName": "dayan",
-//  "userLastName": "Frazap",
-//  "email": "DayanFrazaojr@hotmail.com",
-//  "password": "NeymarJr10"
-//}
+PUT http://localhost:3000/users/65ef53be2515a420828a406b
+Content-Type: application/json
+
+{
+  "userFirstName": "dayan",
+  "userLastName": "Frazap",
+  "email": "DayanFrazaojr@hotmail.com",
+  "password": "NeymarJr10"
+}
 
 
 //delete an user
-//DELETE http://localhost:3000/users/ <= This is where the id goes
+###
+
+DELETE http://localhost:3000/users/65f1fbef1396674b9e788561

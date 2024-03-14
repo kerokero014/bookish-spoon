@@ -7,7 +7,7 @@ router.use('/recipes', require('./recipeRoutes'));
 //TODO: Uncomment Route as you finish the Controller for your Controller
 
 //routes for users
-//router.use('/users', require('./userRoutes'));
+router.use('/users', require('./userRoutes'));
 
 //routes for ingredients
 //router.use('/ingredients', require('./ingredientsRoutes'));
