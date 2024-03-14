@@ -37,10 +37,17 @@ const recipeSchema = new Schema(
     categories: {
       type: [String],
       required: true
+    },
+    createdBy: {
+      type: Schema.Types.ObjectId, //refer to the user schema
+      ref: 'User',
+      required: true
+    },
+    createdOn: {
+      type: Date,
+      default: Date.now,
+      immutable: true
     }
-    //image: {
-    //  type: String,
-    //},
   },
   { versionKey: false }
 );

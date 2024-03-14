@@ -19,7 +19,6 @@ exports.getAllRecipes = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
-
 exports.createRecipeWithIngredients = async (req, res) => {
   try {
     const {
@@ -43,7 +42,8 @@ exports.createRecipeWithIngredients = async (req, res) => {
       servings,
       instructions,
       categories,
-      image
+      image,
+      createdBy: req.user._id // Assuming you have user information stored in req.user
     });
     const savedRecipe = await recipe.save();
 
@@ -62,7 +62,10 @@ exports.createRecipeWithIngredients = async (req, res) => {
     savedRecipe.ingredients = savedIngredients.map((ingredient) => ingredient._id);
     await savedRecipe.save();
 
-    res.status(201).json(savedRecipe);
+    // Populate ingredients field before sending the response
+    const populatedRecipe = await savedRecipe.populate('ingredients').execPopulate();
+
+    res.status(201).json(populatedRecipe);
   } catch (error) {
     console.error('Error creating recipe with ingredients:', error);
     res.status(500).json({ message: 'Internal server error' });
