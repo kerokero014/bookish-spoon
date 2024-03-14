@@ -5,7 +5,7 @@ const doc = {
     title: 'My API',
     description: 'CookBook Recipe API'
   },
-  host: 'localhost:3000'
+  host: 'recipebook-api-xyi2.onrender.com/'
 };
 
 const outputFile = './swagger-output.json';
@@ -15,4 +15,3 @@ const routes = ['./routes/index.js'];
 root file where the route starts, such as index.js, app.js, routes.js, etc ... */
 
 swaggerAutogen(outputFile, routes, doc);
-
