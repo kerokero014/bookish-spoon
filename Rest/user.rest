@@ -1,29 +1,31 @@
 //Uncomment as you use them then comment out the ones you do not need
-//GET http://localhost:3000/users
+GET http://localhost:3000/users
 
 
 //Create a user
-//POST http://localhost:3000/users
-//Content-Type: application/json
-//
-//{
-//  "userFirstName": "Vishal",
-//  "userLastName": "Vaid",
-//  "email": "VV@gmail.com",
-//  "password": "Admin2468@"
-//}
+###
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "userFirstName": "HAYLI",
+  "userLastName": "BURNS",
+  "email": "eb@gmail.com",
+  "password": "Admin2468"
+}
 
 
 
 //update an user
-PUT http://localhost:3000/users/65ef53be2515a420828a406b
+###
+PUT http://localhost:3000/users/65f35d33b13e2b66f8d8149a
 Content-Type: application/json
 
 {
-  "userFirstName": "dayan",
-  "userLastName": "Frazap",
-  "email": "DayanFrazaojr@hotmail.com",
-  "password": "NeymarJr10"
+  "userFirstName": "SABRINA",
+  "userLastName": "SANDERS",
+  "email": "SABRINA@hotmail.com",
+  "password": "HELLO12345"
 }
 
 
