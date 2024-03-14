@@ -5,12 +5,15 @@
     "description": "CookBook Recipe API",
     "version": "1.0.0"
   },
-  "host": "recipebook-api-xyi2.onrender.com",
+  "host": "localhost:3000",
   "basePath": "/",
   "tags": [
     {
       "name": "Recipes",
-      "description": "API for recipes in the system"
+      "description": "API for recipes in the system",
+      "paths": [
+        "recipes"
+      ]
     },
     {
       "name": "Users",
@@ -27,12 +30,6 @@
   ],
   "schemes": [
     "https"
-  ],
-  "consumes": [
-    "application/json"
-  ],
-  "produces": [
-    "application/json"
   ],
   "paths": {
     "/recipes/": {
