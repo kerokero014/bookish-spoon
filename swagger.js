@@ -7,6 +7,14 @@ const doc = {
   },
   host: 'recipebook-api-xyi2.onrender.com',
   schemes: ['https'],
+  consumes: ['application/json'],
+  produces: ['application/json'],
+  tags: [
+    { name: 'Recipes', description: 'API for recipes in the system' },
+    { name: 'Users', description: 'API for users in the system' },
+    { name: 'Ingredients', description: 'API for ingredients in the system'},
+    { name: 'Posts', description: 'API for posts in the system'}
+  ],
 };
 
 const outputFile = './swagger-output.json';
