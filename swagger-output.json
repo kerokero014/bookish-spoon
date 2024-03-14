@@ -5,10 +5,10 @@
     "description": "CookBook Recipe API",
     "version": "1.0.0"
   },
-  "host": "recipebook-api-xyi2.onrender.com/",
+  "host": "recipebook-api-xyi2.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/recipes/": {
