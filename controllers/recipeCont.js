@@ -1,14 +1,14 @@
 //Controller incharge or adding and removing recipes from the database
 // Dev: Kevin Mendoza
 
-//TODO: GetAll recipes function (GET) 
+//TODO: GetAll recipes function (GET)
 //TODO: Add recipes function (POST)
 //TODO: Remove recipes function (DELETE)
 //TODO: Update recipes function (PUT)
 //TODO: Get recipes by ID function or by name (GET)
 
-const Recipe = require("../schemas/recipeSchema");
-const Ingredient = require("../schemas/ingredientSchema");
+const Recipe = require('../schemas/recipeSchema');
+const Ingredient = require('../schemas/ingredientSchema');
 
 // Controller for retrieving all recipes
 exports.getAllRecipes = async (req, res) => {
@@ -19,7 +19,6 @@ exports.getAllRecipes = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
-
 exports.createRecipeWithIngredients = async (req, res) => {
   try {
     const {
@@ -31,7 +30,7 @@ exports.createRecipeWithIngredients = async (req, res) => {
       instructions,
       ingredients,
       categories,
-      image,
+      image
     } = req.body;
 
     // Create recipe document
@@ -44,6 +43,7 @@ exports.createRecipeWithIngredients = async (req, res) => {
       instructions,
       categories,
       image,
+      createdBy: req.user._id // Assuming you have user information stored in req.user
     });
     const savedRecipe = await recipe.save();
 
@@ -52,22 +52,23 @@ exports.createRecipeWithIngredients = async (req, res) => {
       ingredients.map(async (ingredientData) => {
         const ingredient = new Ingredient({
           ...ingredientData,
-          recipeId: savedRecipe._id,
+          recipeId: savedRecipe._id
         });
         return await ingredient.save();
       })
     );
 
     // Update recipe with ingredient IDs
-    savedRecipe.ingredients = savedIngredients.map(
-      (ingredient) => ingredient._id
-    );
+    savedRecipe.ingredients = savedIngredients.map((ingredient) => ingredient._id);
     await savedRecipe.save();
 
-    res.status(201).json(savedRecipe);
+    // Populate ingredients field before sending the response
+    const populatedRecipe = await savedRecipe.populate('ingredients').execPopulate();
+
+    res.status(201).json(populatedRecipe);
   } catch (error) {
-    console.error("Error creating recipe with ingredients:", error);
-    res.status(500).json({ message: "Internal server error" });
+    console.error('Error creating recipe with ingredients:', error);
+    res.status(500).json({ message: 'Internal server error' });
   }
 };
 
@@ -76,7 +77,7 @@ exports.getRecipe = async (req, res) => {
   try {
     const recipe = await Recipe.findById(req.params.id);
     if (!recipe) {
-      return res.status(404).json({ message: "Recipe not found" });
+      return res.status(404).json({ message: 'Recipe not found' });
     }
     res.json(recipe);
   } catch (error) {
@@ -88,10 +89,10 @@ exports.getRecipe = async (req, res) => {
 exports.updateRecipe = async (req, res) => {
   try {
     const recipe = await Recipe.findByIdAndUpdate(req.params.id, req.body, {
-      new: true,
+      new: true
     });
     if (!recipe) {
-      return res.status(404).json({ message: "Recipe not found" });
+      return res.status(404).json({ message: 'Recipe not found' });
     }
     res.json(recipe);
   } catch (error) {
@@ -104,9 +105,9 @@ exports.deleteRecipe = async (req, res) => {
   try {
     const recipe = await Recipe.findByIdAndDelete(req.params.id);
     if (!recipe) {
-      return res.status(404).json({ message: "Recipe not found" });
+      return res.status(404).json({ message: 'Recipe not found' });
     }
-    res.json({ message: "Recipe deleted successfully" });
+    res.json({ message: 'Recipe deleted successfully' });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

@@ -4,7 +4,6 @@
 GET http://localhost:3000/posts
 
 
-
 //get a post by id
 //GET http://localhost:3000/posts/ <= id 
 
@@ -12,11 +11,15 @@ GET http://localhost:3000/posts
 //create a post
 //POST http://localhost:3000/posts
 //Content-Type: application/json
-
-// {
-    //Refer to JSON folder
-// }
-
+//
+//{
+//  "title": "Delicious Recipe",
+//  "content": "This is a delicious recipe that you must try!",
+//  "authorid": "60b9e5b895305d001f93e96a", 
+//  "authorName": "John Doe",
+//  "recipeid": "60b9e5b895305d001f93e96b",
+//  "recipeName": "Spicy Chicken Curry"
+//}
 
 //update a post
 //PUT http://localhost:3000/posts/ <= id

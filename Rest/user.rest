@@ -1,18 +1,17 @@
 //Uncomment as you use them then comment out the ones you do not need
-GET http://localhost:3000/users
+//GET http://localhost:3000/users
 
 
 //Create a user
-###
-POST http://localhost:3000/users
-Content-Type: application/json
-
-{
-  "userFirstName": "ELI",
-  "userLastName": "BURNS",
-  "email": "VV@gmail.com",
-  "password": "Admin2468@"
-}
+//POST http://localhost:3000/users
+//Content-Type: application/json
+//
+//{
+//  "userFirstName": "Vishal",
+//  "userLastName": "Vaid",
+//  "email": "VV@gmail.com",
+//  "password": "Admin2468@"
+//}
 
 
 

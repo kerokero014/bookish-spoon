@@ -2,7 +2,7 @@
 
 //Get all ingredients
 
-GET  http://localhost:3000/ingredients
+//GET  http://localhost:3000/ingredients
 
 
 //get single ingredient

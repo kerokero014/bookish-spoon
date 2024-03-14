@@ -13,7 +13,7 @@ router.use('/users', require('./userRoutes'));
 //router.use('/ingredients', require('./ingredientsRoutes'));
 
 //Routes for posts
-//router.use('/posts', require('./postsRoutes'));
+router.use('/posts', require('./postsRoutes'));
 
 //swagger
 //router.use('/', require('./swagger'))
