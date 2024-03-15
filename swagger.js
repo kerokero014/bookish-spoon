@@ -2,13 +2,13 @@ const swaggerAutogen = require('swagger-autogen')();
 
 const doc = {
   info: {
-    title: 'My API',
+    title: 'Recipe Book API',
     description: 'CookBook Recipe API'
   },
   host: 'localhost:3000',
   schemes: ['https'],
   tags: [
-    { name: 'Recipes', description: 'API for recipes in the system', paths: ['recipes']},
+    { name: 'Recipes', description: 'API for recipes in the system', paths: ['recipes', 'recipes/:id']},
     { name: 'Users', description: 'API for users in the system' },
     { name: 'Ingredients', description: 'API for ingredients in the system'},
     { name: 'Posts', description: 'API for posts in the system'}

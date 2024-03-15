@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "My API",
+    "title": "Recipe Book API",
     "description": "CookBook Recipe API",
     "version": "1.0.0"
   },
@@ -12,7 +12,8 @@
       "name": "Recipes",
       "description": "API for recipes in the system",
       "paths": [
-        "recipes"
+        "recipes",
+        "recipes/:id"
       ]
     },
     {
