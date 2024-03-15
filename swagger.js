@@ -6,7 +6,7 @@ const doc = {
     description: 'CookBook Recipe API'
   },
   host: 'localhost:3000',
-  schemes: ['https'],
+  schemes: ['http, https'],
   tags: [
     { name: 'Recipes', description: 'API for recipes in the system', paths: ['recipes', 'recipes/:id']},
     { name: 'Users', description: 'API for users in the system' },
