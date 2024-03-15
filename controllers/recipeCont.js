@@ -19,6 +19,7 @@ exports.getAllRecipes = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
 exports.createRecipeWithIngredients = async (req, res) => {
   try {
     const {
@@ -29,8 +30,7 @@ exports.createRecipeWithIngredients = async (req, res) => {
       servings,
       instructions,
       ingredients,
-      categories,
-      image
+      categories
     } = req.body;
 
     // Create recipe document
@@ -42,7 +42,6 @@ exports.createRecipeWithIngredients = async (req, res) => {
       servings,
       instructions,
       categories,
-      image,
       createdBy: req.user._id // Assuming you have user information stored in req.user
     });
     const savedRecipe = await recipe.save();
@@ -57,7 +56,6 @@ exports.createRecipeWithIngredients = async (req, res) => {
         return await ingredient.save();
       })
     );
-
     // Update recipe with ingredient IDs
     savedRecipe.ingredients = savedIngredients.map((ingredient) => ingredient._id);
     await savedRecipe.save();
