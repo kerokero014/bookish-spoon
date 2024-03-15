@@ -1,75 +1,80 @@
 {
-  "name": "Spicy Black Bean Burgers",
-  "description": "Hearty and flavorful black bean burgers with a kick of spice.",
-  "cookTime": 20,
-  "prepTime": 10,
+  "name": "Vegan Lentil Soup",
+  "description": "A warm and comforting lentil soup with a blend of spices.",
+  "cookTime": 45,
+  "prepTime": 15,
   "servings": 4,
   "instructions": [
-    "Preheat oven to 400°F (200°C).",
-    "Mash black beans in a large bowl, leaving some texture. Add cornbread crumbs, chopped onion, bell pepper, chili powder, cumin, and salt. Mix well.",
-    "Form the mixture into four equal patties. Heat a skillet over medium heat and cook burgers for 2-3 minutes per side, until browned.",
-    "Transfer burgers to a baking sheet and bake for 10 minutes, or until heated through.",
-    "Serve on hamburger buns with your favorite toppings, like avocado slices, salsa, and veganaise."
+    "In a large pot, heat olive oil over medium heat. Add onions, carrots, and celery; cook and stir until onion is tender.",
+    "Stir in garlic, bay leaf, oregano, and basil; cook for 2 minutes.",
+    "Stir in lentils, and add water and tomatoes. Bring to a boil.",
+    "Reduce heat, and simmer for at least 1 hour. When ready to serve, stir in spinach and cook until it wilts.",
+    "Stir in vinegar, and season to taste with salt and pepper."
   ],
   "ingredients": [
     {
-      "name": "Black beans",
-      "quantity": 15,
-      "unit": "ounces",
-      "drained": true
-    },
-    {
-      "name": "Cornbread crumbs",
-      "quantity": 0.5,
-      "unit": "cup"
+      "name": "Olive oil",
+      "quantity": 2,
+      "unit": "tablespoons"
     },
     {
       "name": "Onion",
-      "quantity": 0.5,
-      "unit": "small"
-    },
-    {
-      "name": "Bell pepper",
-      "quantity": 0.5,
-      "unit": "red or green",
-      "chopped": true
-    },
-    {
-      "name": "Chili powder",
       "quantity": 1,
-      "unit": "tablespoon"
+      "unit": "large"
     },
     {
-      "name": "Cumin",
+      "name": "Carrots",
+      "quantity": 2,
+      "unit": "medium"
+    },
+    {
+      "name": "Celery stalks",
+      "quantity": 2
+    },
+    {
+      "name": "Garlic cloves",
+      "quantity": 2,
+      "unit": "minced"
+    },
+    {
+      "name": "Bay leaf",
+      "quantity": 1
+    },
+    {
+      "name": "Dried oregano",
       "quantity": 1,
       "unit": "teaspoon"
     },
     {
-      "name": "Salt",
-      "quantity": 0.5,
+      "name": "Dried basil",
+      "quantity": 1,
       "unit": "teaspoon"
     },
     {
-      "name": "Hamburger buns",
-      "quantity": 4
-    },
-    {
-      "name": "Avocado",
+      "name": "Lentils",
       "quantity": 1,
-      "unit": "optional",
-      "sliced": true
+      "unit": "cup"
     },
     {
-      "name": "Salsa",
-      "quantity": 0.25,
-      "unit": "cup",
-      "optional": true
+      "name": "Water",
+      "quantity": 4,
+      "unit": "cups"
     },
     {
-      "name": "Veganaise",
+      "name": "Canned diced tomatoes",
+      "quantity": 1,
+      "unit": "can"
+    },
+    {
+      "name": "Spinach",
+      "quantity": 2,
+      "unit": "cups"
+    },
+    {
+      "name": "Vinegar",
       "quantity": 2,
       "unit": "tablespoons"
     }
   ],
-  "categories": ["Vegetarian", "Main Course"]
+  "categories": ["Vegan", "Soup"]
 }
