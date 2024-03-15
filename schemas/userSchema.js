@@ -11,32 +11,31 @@ const userSchema = new Schema(
       minlength: 3,
       trim: true,
       validate: {
-        validate: {
-          validator: async function (value) {
-            const user = await User.findOne({ username: value });
-            return !user;
-          },
-          message: 'Username already exists'
-        }
+        validator: async function (value) {
+          const user = await User.findOne({ userFirstName: value });
+          return !user;
+        },
+        message: 'User Name already exists'
       }
     },
     userLastName: {
       type: String,
       required: true,
-      unique: true,
-      minlength: 3
+      minlength: 3,
+      trim: true
     },
     password: {
       type: String,
       required: true,
       minlength: 5,
-      maxlength: 100, // New validation: maximum length
+      maxlength: 72, // Adjusted maximum length
       validate: {
         validator: function (v) {
-          // New validation: password must contain at least one number and one special character
-          return /(?=.*[0-9])(?=.*[!@#$%^&*])/.test(v);
+          // New validation: password must contain at least one number, one uppercase letter, one lowercase letter, and one special character
+          return /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])/.test(v);
         },
-        message: 'Password must contain at least one number and one special character'
+        message:
+          'Password must contain at least one number, one uppercase letter, one lowercase letter, and one special character'
       }
     },
     email: {
@@ -44,8 +43,8 @@ const userSchema = new Schema(
       required: true,
       unique: true,
       match: [/.+@.+\..+/, 'Please enter a valid e-mail address'],
-      lowercase: true, // New validation: convert email to lowercase
-      trim: true // New validation: remove leading and trailing spaces
+      lowercase: true,
+      trim: true
     },
     recipes: [
       {
