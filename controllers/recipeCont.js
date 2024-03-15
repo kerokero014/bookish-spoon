@@ -33,9 +33,6 @@ exports.createRecipeWithIngredients = async (req, res) => {
       categories
     } = req.body;
 
-    // Extract user ID from request
-    const createdBy = req.user._id;
-
     // Create ingredient documents
     const savedIngredients = await Ingredient.insertMany(ingredients);
 
@@ -51,8 +48,7 @@ exports.createRecipeWithIngredients = async (req, res) => {
       servings,
       instructions,
       ingredients: ingredientIds,
-      categories,
-      createdBy
+      categories
     });
 
     // Save recipe
