@@ -9,14 +9,7 @@ const userSchema = new Schema(
       required: true,
       unique: true,
       minlength: 3,
-      trim: true,
-      validate: {
-        validator: async function (value) {
-          const user = await User.findOne({ userFirstName: value });
-          return !user;
-        },
-        message: 'User Name already exists'
-      }
+      trim: true
     },
     userLastName: {
       type: String,

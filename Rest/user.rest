@@ -8,11 +8,12 @@ POST http://localhost:3000/users
 Content-Type: application/json
 
 {
-  "userFirstName": "HAYLI",
-  "userLastName": "BURNS",
-  "email": "eb@gmail.com",
-  "password": "Admin2468"
+  "userFirstName": "Saul",
+  "userLastName": "Klain",
+  "email": "LionsGateSK@gmail.com",
+  "password": "OyVey123!"
 }
+
 
 
 
