@@ -1,10 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-
-
 //TODO: Uncomment Route as you finish the Controller for your Controller
-
 
 //Routes for recipes
 router.use('/recipes', require('./recipeRoutes'));
@@ -19,6 +16,6 @@ router.use('/ingredients', require('./ingredientRoute'));
 router.use('/posts', require('./postsRoutes'));
 
 //swagger
-router.use('/', require('./swagger'))
+router.use('/', require('./swagger'));
 
 module.exports = router;

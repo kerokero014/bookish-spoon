@@ -5,32 +5,10 @@
     "description": "CookBook Recipe API",
     "version": "1.0.0"
   },
-  "host": "localhost:3000",
+  "host": "recipebook-api-xyi2.onrender.com",
   "basePath": "/",
-  "tags": [
-    {
-      "name": "Recipes",
-      "description": "API for recipes in the system",
-      "paths": [
-        "recipes",
-        "recipes/:id"
-      ]
-    },
-    {
-      "name": "Users",
-      "description": "API for users in the system"
-    },
-    {
-      "name": "Ingredients",
-      "description": "API for ingredients in the system"
-    },
-    {
-      "name": "Posts",
-      "description": "API for posts in the system"
-    }
-  ],
   "schemes": [
-    "https"
+    "http, https"
   ],
   "paths": {
     "/recipes/": {

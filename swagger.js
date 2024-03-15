@@ -5,14 +5,8 @@ const doc = {
     title: 'Recipe Book API',
     description: 'CookBook Recipe API'
   },
-  host: 'localhost:3000',
+  host: 'recipebook-api-xyi2.onrender.com',
   schemes: ['http, https'],
-  tags: [
-    { name: 'Recipes', description: 'API for recipes in the system', paths: ['recipes', 'recipes/:id']},
-    { name: 'Users', description: 'API for users in the system' },
-    { name: 'Ingredients', description: 'API for ingredients in the system'},
-    { name: 'Posts', description: 'API for posts in the system'}
-  ]
 };
 
 const outputFile = './swagger-output.json';
