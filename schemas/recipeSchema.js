@@ -38,11 +38,11 @@ const recipeSchema = new Schema(
       type: [String],
       required: true
     },
-    createdBy: {
-      type: Schema.Types.ObjectId, //refer to the user schema
-      ref: 'User',
-      required: true
-    },
+    //createdBy: {
+    //  type: Schema.Types.ObjectId, //refer to the user schema
+    //  ref: 'User',
+    //  required: true
+    //},
     createdOn: {
       type: Date,
       default: Date.now,

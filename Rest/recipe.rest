@@ -83,10 +83,7 @@ Content-Type: application/json
     }
   ],
   "categories": ["Vegetarian", "Main Course"],
-  "createdBy": "65f0d481edd7fc766d379676"
 }
-
-
 
 //{
 //    referer to JSON foler for example input
@@ -102,4 +99,5 @@ Content-Type: application/json
 //}
 
 //delete a recipe
-//DELETE http://localhost:3000/recipes/ <=id
+###
+DELETE http://localhost:3000/recipes/65e66d465af2d1169ad696a0
