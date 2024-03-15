@@ -8,9 +8,18 @@ const userSchema = new Schema(
       type: String,
       required: true,
       unique: true,
-      minlength: 3
+      minlength: 3,
+      trim: true,
+      validate: {
+        validate: {
+          validator: async function (value) {
+            const user = await User.findOne({ username: value });
+            return !user;
+          },
+          message: 'Username already exists'
+        }
+      }
     },
-
     userLastName: {
       type: String,
       required: true,
@@ -18,16 +27,25 @@ const userSchema = new Schema(
       minlength: 3
     },
     password: {
-      //easy password for now once OAuth us implemented  we will require a more secure password
       type: String,
       required: true,
-      minlength: 5
+      minlength: 5,
+      maxlength: 100, // New validation: maximum length
+      validate: {
+        validator: function (v) {
+          // New validation: password must contain at least one number and one special character
+          return /(?=.*[0-9])(?=.*[!@#$%^&*])/.test(v);
+        },
+        message: 'Password must contain at least one number and one special character'
+      }
     },
     email: {
       type: String,
       required: true,
       unique: true,
-      match: [/.+@.+\..+/, 'Please enter a valid e-mail address']
+      match: [/.+@.+\..+/, 'Please enter a valid e-mail address'],
+      lowercase: true, // New validation: convert email to lowercase
+      trim: true // New validation: remove leading and trailing spaces
     },
     recipes: [
       {
