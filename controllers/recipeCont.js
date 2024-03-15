@@ -33,6 +33,15 @@ exports.createRecipeWithIngredients = async (req, res) => {
       categories
     } = req.body;
 
+    // Extract user ID from request
+    const createdBy = req.user._id;
+
+    // Create ingredient documents
+    const savedIngredients = await Ingredient.insertMany(ingredients);
+
+    // Extract IDs of saved ingredients
+    const ingredientIds = savedIngredients.map((ingredient) => ingredient._id);
+
     // Create recipe document
     const recipe = new Recipe({
       name,
@@ -41,29 +50,15 @@ exports.createRecipeWithIngredients = async (req, res) => {
       prepTime,
       servings,
       instructions,
+      ingredients: ingredientIds,
       categories,
-      createdBy: req.user._id // Assuming you have user information stored in req.user
+      createdBy
     });
+
+    // Save recipe
     const savedRecipe = await recipe.save();
 
-    // Create and store ingredient documents
-    const savedIngredients = await Promise.all(
-      ingredients.map(async (ingredientData) => {
-        const ingredient = new Ingredient({
-          ...ingredientData,
-          recipeId: savedRecipe._id
-        });
-        return await ingredient.save();
-      })
-    );
-    // Update recipe with ingredient IDs
-    savedRecipe.ingredients = savedIngredients.map((ingredient) => ingredient._id);
-    await savedRecipe.save();
-
-    // Populate ingredients field before sending the response
-    const populatedRecipe = await savedRecipe.populate('ingredients').execPopulate();
-
-    res.status(201).json(populatedRecipe);
+    res.status(201).json(savedRecipe);
   } catch (error) {
     console.error('Error creating recipe with ingredients:', error);
     res.status(500).json({ message: 'Internal server error' });

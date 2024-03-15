@@ -1,15 +1,14 @@
 //Controller incharge or adding and removing ingredients from the database
-// Dev: Dayan F 
+// Dev: Dayan F
 
-//TODO: GetAll ingredients function (GET) 
+//TODO: GetAll ingredients function (GET)
 //TODO: Add ingredient function (POST)
 //TODO: Remove ingredient function (DELETE)
 //TODO: Update ingredient function (PUT)
 //TODO: Get ingredient by ID function or by name (GET)
 
-
-const mongoose = require("mongoose");
-const Ingredient = require("../schemas/ingredientSchema");
+const mongoose = require('mongoose');
+const Ingredient = require('../schemas/ingredientSchema');
 
 //GetAllIngredients
 exports.getIngredients = async (req, res) => {
@@ -26,7 +25,7 @@ exports.getIngredientById = async (req, res) => {
   try {
     const ingredient = await Ingredient.findById(req.params.id);
     if (!ingredient) {
-      return res.status(404).json({ message: "Ingredient not found" });
+      return res.status(404).json({ message: 'Ingredient not found' });
     }
     res.status(200).json(ingredient);
   } catch (error) {
@@ -39,7 +38,7 @@ exports.createIngredient = async (req, res) => {
   const ingredient = new Ingredient({
     name: req.body.name,
     type: req.body.type,
-    price: req.body.price,
+    price: req.body.price
   });
 
   try {
@@ -55,7 +54,7 @@ exports.updateIngredient = async (req, res) => {
   try {
     const ingredient = await Ingredient.findById(req.params.id);
     if (!ingredient) {
-      return res.status(404).json({ message: "Ingredient not found" });
+      return res.status(404).json({ message: 'Ingredient not found' });
     }
     ingredient.name = req.body.name;
     ingredient.type = req.body.type;
@@ -73,10 +72,10 @@ exports.deleteIngredient = async (req, res) => {
   try {
     const ingredient = await Ingredient.findById(req.params.id);
     if (!ingredient) {
-      return res.status(404).json({ message: "Ingredient not found" });
+      return res.status(404).json({ message: 'Ingredient not found' });
     }
     await ingredient.remove();
-    res.status(200).json({ message: "Ingredient deleted successfully" });
+    res.status(200).json({ message: 'Ingredient deleted successfully' });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

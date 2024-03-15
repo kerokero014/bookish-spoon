@@ -1,19 +1,75 @@
 {
-  "name": "Chocolate Chip Cookies",
-  "description": "A classic and delicious treat - chewy and soft chocolate chip cookies",
-  "cookTime": 15,
+  "name": "Spicy Black Bean Burgers",
+  "description": "Hearty and flavorful black bean burgers with a kick of spice.",
+  "cookTime": 20,
   "prepTime": 10,
-  "servings": 24,
+  "servings": 4,
   "instructions": [
-    "Preheat oven to 375°F (190°C).",
-    "Cream together butter and sugars in a large bowl until light and fluffy.",
-    "Beat in eggs one at a time, then stir in vanilla extract.",
-    "In a separate bowl, whisk together flour, baking soda, and salt.",
-    "Gradually add dry ingredients to wet ingredients, mixing until just combined.",
-    "Stir in chocolate chips.",
-    "Drop by rounded tablespoons onto baking sheets lined with parchment paper.",
-    "Bake for 10-12 minutes, or until edges are golden brown.",
-    "Let cool on baking sheet for a few minutes before transferring to a wire rack to cool completely."
+    "Preheat oven to 400°F (200°C).",
+    "Mash black beans in a large bowl, leaving some texture. Add cornbread crumbs, chopped onion, bell pepper, chili powder, cumin, and salt. Mix well.",
+    "Form the mixture into four equal patties. Heat a skillet over medium heat and cook burgers for 2-3 minutes per side, until browned.",
+    "Transfer burgers to a baking sheet and bake for 10 minutes, or until heated through.",
+    "Serve on hamburger buns with your favorite toppings, like avocado slices, salsa, and veganaise."
   ],
-  "categories": ["Dessert", "Baking", "Kid-Friendly"]
+  "ingredients": [
+    {
+      "name": "Black beans",
+      "quantity": 15,
+      "unit": "ounces",
+      "drained": true
+    },
+    {
+      "name": "Cornbread crumbs",
+      "quantity": 0.5,
+      "unit": "cup"
+    },
+    {
+      "name": "Onion",
+      "quantity": 0.5,
+      "unit": "small"
+    },
+    {
+      "name": "Bell pepper",
+      "quantity": 0.5,
+      "unit": "red or green",
+      "chopped": true
+    },
+    {
+      "name": "Chili powder",
+      "quantity": 1,
+      "unit": "tablespoon"
+    },
+    {
+      "name": "Cumin",
+      "quantity": 1,
+      "unit": "teaspoon"
+    },
+    {
+      "name": "Salt",
+      "quantity": 0.5,
+      "unit": "teaspoon"
+    },
+    {
+      "name": "Hamburger buns",
+      "quantity": 4
+    },
+    {
+      "name": "Avocado",
+      "quantity": 1,
+      "unit": "optional",
+      "sliced": true
+    },
+    {
+      "name": "Salsa",
+      "quantity": 0.25,
+      "unit": "cup",
+      "optional": true
+    },
+    {
+      "name": "Veganaise",
+      "quantity": 2,
+      "unit": "tablespoons"
+    }
+  ],
+  "categories": ["Vegetarian", "Main Course"]
 }

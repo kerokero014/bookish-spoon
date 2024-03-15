@@ -1,7 +1,7 @@
 //Uncomment as you use them then comment out the ones you do not need
 
 //get all recipes
-//GET http://localhost:3000/recipes 
+GET http://localhost:3000/recipes 
 
 
 //get a single recipe
@@ -9,8 +9,84 @@
 
 
 //create a recipe
-//POST http://localhost:3000/recipes
-//Content-Type: application/json
+###
+POST http://localhost:3000/recipes
+Content-Type: application/json
+
+{
+  "name": "Spicy Black Bean Burgers",
+  "description": "Hearty and flavorful black bean burgers with a kick of spice.",
+  "cookTime": 20,
+  "prepTime": 10,
+  "servings": 4,
+  "instructions": [
+    "Preheat oven to 400°F (200°C).",
+    "Mash black beans in a large bowl, leaving some texture. Add cornbread crumbs, chopped onion, bell pepper, chili powder, cumin, and salt. Mix well.",
+    "Form the mixture into four equal patties. Heat a skillet over medium heat and cook burgers for 2-3 minutes per side, until browned.",
+    "Transfer burgers to a baking sheet and bake for 10 minutes, or until heated through.",
+    "Serve on hamburger buns with your favorite toppings, like avocado slices, salsa, and veganaise."
+  ],
+  "ingredients": [
+    {
+      "name": "Black beans",
+      "quantity": 15,
+      "unit": "ounces"
+    },
+    {
+      "name": "Cornbread crumbs",
+      "quantity": 0.5,
+      "unit": "cup"
+    },
+    {
+      "name": "Onion",
+      "quantity": 0.5,
+      "unit": "small"
+    },
+    {
+      "name": "Bell pepper",
+      "quantity": 0.5,
+      "unit": "red or green"
+    },
+    {
+      "name": "Chili powder",
+      "quantity": 1,
+      "unit": "tablespoon"
+    },
+    {
+      "name": "Cumin",
+      "quantity": 1,
+      "unit": "teaspoon"
+    },
+    {
+      "name": "Salt",
+      "quantity": 0.5,
+      "unit": "teaspoon"
+    },
+    {
+      "name": "Hamburger buns",
+      "quantity": 4
+    },
+    {
+      "name": "Avocado",
+      "quantity": 1,
+      "unit": "optional"
+    },
+    {
+      "name": "Salsa",
+      "quantity": 0.25,
+      "unit": "cup"
+    },
+    {
+      "name": "Veganaise",
+      "quantity": 2,
+      "unit": "tablespoons"
+    }
+  ],
+  "categories": ["Vegetarian", "Main Course"],
+  "createdBy": "65f0d481edd7fc766d379676"
+}
+
+
 
 //{
 //    referer to JSON foler for example input
