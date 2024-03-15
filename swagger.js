@@ -6,7 +6,7 @@ const doc = {
     description: 'CookBook Recipe API'
   },
   host: 'recipebook-api-xyi2.onrender.com',
-  schemes: ['http, https'],
+  schemes: ['https'],
 };
 
 const outputFile = './swagger-output.json';
