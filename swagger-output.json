@@ -55,9 +55,6 @@
                 },
                 "categories": {
                   "example": "any"
-                },
-                "image": {
-                  "example": "any"
                 }
               }
             }
