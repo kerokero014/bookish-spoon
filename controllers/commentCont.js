@@ -72,10 +72,14 @@ exports.deleteComment = async (req, res) => {
       if (!comment) {
         return res.status(404).json({ message: 'Comment not found' });
       }
-      await comment.remove(); // This line should work now
-      res.status(200).json({ message: 'Comment deleted successfully' });
+      
+      if (comment instanceof Comment) {
+        await comment.remove();
+        res.status(200).json({ message: 'Comment deleted successfully' });
+      } else {
+        res.status(500).json({ message: 'Invalid comment object' });
+      }
     } catch (error) {
       res.status(500).json({ message: error.message });
     }
   };
-  
