@@ -72,7 +72,7 @@ exports.deleteComment = async (req, res) => {
       if (!comment) {
         return res.status(404).json({ message: 'Comment not found' });
       }
-        const result = await Model.deleteOne({ _id: objectId });
+        const result = await Comment.deleteOne({ _id: objectId });
         console.log(result);
         res.status(200).json({ message: 'Ingredient deleted successfully' });
     } catch (error) {
