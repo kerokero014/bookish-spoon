@@ -10,7 +10,7 @@ const router = express.Router();
 //router.use('/users', require('./userRoutes'));
 //
 ////routes for ingredients
-//router.use('/ingredients', require('./ingredientRoute'));
+router.use('/ingredients', require('./ingredientRoute'));
 //
 ////Routes for posts
 //router.use('/posts', require('./postsRoutes'));
