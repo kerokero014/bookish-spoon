@@ -25,7 +25,7 @@ exports.getCommentById = async (req, res) => {
   try {
     const comment = await Comment.findById(req.params.id);
     if (!comment) {
-      return res.status(404).json({ message: 'Ingredient not found' });
+      return res.status(404).json({ message: 'Comment not found' });
     }
     res.status(200).json(comment);
   } catch (error) {
@@ -55,8 +55,8 @@ exports.updateComment = async (req, res) => {
     if (!comment) {
       return res.status(404).json({ message: 'comment not found' });
     }
-    ingredient.name = req.body.name;
-    ingredient.comment = req.body.comment;
+    comment.name = req.body.name;
+    comment.comment = req.body.comment;
 
     const updatedComment = await comment.save();
     res.status(200).json(updatedComment);
