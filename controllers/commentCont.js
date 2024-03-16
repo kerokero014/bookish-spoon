@@ -67,14 +67,15 @@ exports.updateComment = async (req, res) => {
 
 //DeleteIngredient with Validation
 exports.deleteComment = async (req, res) => {
-  try {
-    const comment = await Comment.findById(req.params.id);
-    if (!comment) {
-      return res.status(404).json({ message: 'Ingredient not found' });
+    try {
+      const comment = await Comment.findById(req.params.id);
+      if (!comment) {
+        return res.status(404).json({ message: 'Comment not found' });
+      }
+      await comment.remove(); // This line should work now
+      res.status(200).json({ message: 'Comment deleted successfully' });
+    } catch (error) {
+      res.status(500).json({ message: error.message });
     }
-    await comment.remove();
-    res.status(200).json({ message: 'Ingredient deleted successfully' });
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-};
+  };
+  
