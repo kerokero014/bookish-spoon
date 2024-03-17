@@ -37,7 +37,7 @@ exports.getCommentById = async (req, res) => {
 exports.createcomment = async (req, res) => {
   const comment = new Comment({
     name: req.body.name,
-    comment: req.body.comment,
+    comment: req.body.comment
   });
 
   try {
@@ -67,16 +67,15 @@ exports.updateComment = async (req, res) => {
 
 //DeleteIngredient with Validation
 exports.deleteComment = async (req, res) => {
-    try {
-      const comment = await Comment.findById(req.params.id);
-      if (!comment) {
-        return res.status(404).json({ message: 'Comment not found' });
-      }
-        const result = await Comment.deleteOne({ _id: comment });
-        console.log(result);
-        res.status(200).json({ message: 'Ingredient deleted successfully' });
-    } catch (error) {
-      res.status(500).json({ message: error.message });
+  try {
+    const comment = await Comment.findById(req.params.id);
+    if (!comment) {
+      return res.status(404).json({ message: 'Comment not found' });
     }
-  };
-  
+    const result = await Comment.deleteOne({ _id: comment });
+    console.log(result);
+    res.status(200).json({ message: 'Ingredient deleted successfully' });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
