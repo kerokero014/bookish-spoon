@@ -15,71 +15,71 @@ POST http://localhost:3000/recipes
 Content-Type: application/json
 
 {
-    "name": "Vegetarian Pasta Primavera",
-    "description": "A colorful and vibrant pasta dish packed with fresh vegetables.",
-    "cookTime": 20,
-    "prepTime": 15,
-    "servings": 4,
-    "instructions": [
-        "In a large pot of boiling salted water, cook pasta according to package instructions. Drain well.",
-        "In a large skillet, heat olive oil over medium high heat. Add garlic and cook until fragrant.",
-        "Add bell peppers, carrot and peas. Cook, stirring frequently, until vegetables are tender.",
-        "Stir in pasta, parmesan cheese and heavy cream. Cook, stirring constantly, until heated through and the cheese has melted.",
-        "Serve immediately, garnished with parsley, if desired."
-    ],
-    "ingredients": [
-        {
-            "name": "Pasta",
-            "quantity": 8,
-            "unit": "ounces"
-        },
-        {
-            "name": "Olive oil",
-            "quantity": 2,
-            "unit": "tablespoons"
-        },
-        {
-            "name": "Garlic",
-            "quantity": 2,
-            "unit": "cloves"
-        },
-        {
-            "name": "Red bell pepper",
-            "quantity": 1,
-            "unit": "large"
-        },
-        {
-            "name": "Green bell pepper",
-            "quantity": 1,
-            "unit": "large"
-        },
-        {
-            "name": "Carrot",
-            "quantity": 1,
-            "unit": "large"
-        },
-        {
-            "name": "Peas",
-            "quantity": 1,
-            "unit": "cup"
-        },
-        {
-            "name": "Parmesan cheese",
-            "quantity": 1/2,
-            "unit": "cup"
-        },
-        {
-            "name": "Heavy cream",
-            "quantity": 1/2,
-            "unit": "cup"
-        },
-        {
-            "name": "Parsley",
-            "quantity": 2,
-            "unit": "tablespoons"
-        }
-    ],
-    "categories": ["Vegetarian", "Pasta"]
+  "name": "Vegetarian Pasta Primavera",
+  "description": "A colorful and vibrant pasta dish packed with fresh vegetables.",
+  "cookTime": 20,
+  "prepTime": 15,
+  "servings": 4,
+  "instructions": [
+    "In a large pot of boiling salted water, cook pasta according to package instructions. Drain well.",
+    "In a large skillet, heat olive oil over medium high heat. Add garlic and cook until fragrant.",
+    "Add bell peppers, carrot and peas. Cook, stirring frequently, until vegetables are tender.",
+    "Stir in pasta, parmesan cheese and heavy cream. Cook, stirring constantly, until heated through and the cheese has melted.",
+    "Serve immediately, garnished with parsley, if desired."
+  ],
+  "ingredients": [
+    {
+      "name": "Pasta",
+      "quantity": 8,
+      "unit": "ounces"
+    },
+    {
+      "name": "Olive oil",
+      "quantity": 2,
+      "unit": "tablespoons"
+    },
+    {
+      "name": "Garlic",
+      "quantity": 2,
+      "unit": "cloves"
+    },
+    {
+      "name": "Red bell pepper",
+      "quantity": 1,
+      "unit": "large"
+    },
+    {
+      "name": "Green bell pepper",
+      "quantity": 1,
+      "unit": "large"
+    },
+    {
+      "name": "Carrot",
+      "quantity": 1,
+      "unit": "large"
+    },
+    {
+      "name": "Peas",
+      "quantity": 1,
+      "unit": "cup"
+    },
+    {
+      "name": "Parmesan cheese",
+      "quantity": 0.5,
+      "unit": "cup"
+    },
+    {
+      "name": "Heavy cream",
+      "quantity": 0.5,
+      "unit": "cup"
+    },
+    {
+      "name": "Parsley",
+      "quantity": 2,
+      "unit": "tablespoons"
+    }
+  ],
+  "categories": ["Vegetarian", "Pasta"]
 }
 
 

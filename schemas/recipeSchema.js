@@ -9,7 +9,7 @@ const recipeSchema = new Schema(
       type: String,
       required: true,
       trim: true,
-      maxlength: 100
+      maxlength: 200
     },
     description: {
       type: String,
