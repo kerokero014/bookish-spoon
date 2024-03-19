@@ -15,53 +15,45 @@ POST http://localhost:3000/recipes
 Content-Type: application/json
 
 {
-  "name": "Vegetarian Pasta Primavera",
-  "description": "A colorful and vibrant pasta dish packed with fresh vegetables.",
-  "cookTime": 20,
-  "prepTime": 15,
+  "name": "Mushroom Risotto",
+  "description": "A creamy and savory Italian rice dish cooked with flavorful mushrooms.",
+  "cookTime": 30,
+  "prepTime": 10,
   "servings": 4,
   "instructions": [
-    "In a large pot of boiling salted water, cook pasta according to package instructions. Drain well.",
-    "In a large skillet, heat olive oil over medium high heat. Add garlic and cook until fragrant.",
-    "Add bell peppers, carrot and peas. Cook, stirring frequently, until vegetables are tender.",
-    "Stir in pasta, parmesan cheese and heavy cream. Cook, stirring constantly, until heated through and the cheese has melted.",
-    "Serve immediately, garnished with parsley, if desired."
+    "In a saucepan, heat vegetable broth over medium heat.",
+    "In a separate large skillet, melt butter. Add onions and cook until translucent.",
+    "Add arborio rice to the skillet and cook, stirring frequently, until lightly toasted.",
+    "Gradually add hot vegetable broth, 1/2 cup at a time, stirring constantly until absorbed.",
+    "Stir in sliced mushrooms and continue cooking until rice is creamy and mushrooms are tender.",
+    "Season with salt, pepper, and grated Parmesan cheese.",
+    "Serve hot, garnished with chopped parsley."
   ],
   "ingredients": [
     {
-      "name": "Pasta",
-      "quantity": 8,
-      "unit": "ounces"
+      "name": "Arborio rice",
+      "quantity": 1,
+      "unit": "cup"
     },
     {
-      "name": "Olive oil",
+      "name": "Vegetable broth",
+      "quantity": 4,
+      "unit": "cups"
+    },
+    {
+      "name": "Butter",
       "quantity": 2,
       "unit": "tablespoons"
     },
     {
-      "name": "Garlic",
-      "quantity": 2,
-      "unit": "cloves"
+      "name": "Onion",
+      "quantity": 1,
+      "unit": "medium"
     },
     {
-      "name": "Red bell pepper",
-      "quantity": 1,
-      "unit": "large"
-    },
-    {
-      "name": "Green bell pepper",
-      "quantity": 1,
-      "unit": "large"
-    },
-    {
-      "name": "Carrot",
-      "quantity": 1,
-      "unit": "large"
-    },
-    {
-      "name": "Peas",
-      "quantity": 1,
-      "unit": "cup"
+      "name": "Mushrooms",
+      "quantity": 8,
+      "unit": "ounces"
     },
     {
       "name": "Parmesan cheese",
@@ -69,9 +61,14 @@ Content-Type: application/json
       "unit": "cup"
     },
     {
-      "name": "Heavy cream",
+      "name": "Salt",
+      "quantity": 1,
+      "unit": "teaspoon"
+    },
+    {
+      "name": "Black pepper",
       "quantity": 0.5,
-      "unit": "cup"
+      "unit": "teaspoon"
     },
     {
       "name": "Parsley",
@@ -79,8 +76,9 @@ Content-Type: application/json
       "unit": "tablespoons"
     }
   ],
-  "categories": ["Vegetarian", "Pasta"]
+  "categories": ["Vegetarian", "Italian"]
 }
+
 
 
 //{
