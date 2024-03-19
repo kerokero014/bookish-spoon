@@ -1,6 +1,7 @@
 //Uncomment as you use them then comment out the ones you do not need
 
 //get all recipes
+###
 GET http://localhost:3000/recipes 
 
 
@@ -14,86 +15,71 @@ POST http://localhost:3000/recipes
 Content-Type: application/json
 
 {
-  "name": "Vegan Lentil Soup",
-  "description": "A warm and comforting lentil soup with a blend of spices.",
-  "cookTime": 45,
-  "prepTime": 15,
-  "servings": 4,
-  "instructions": [
-    "In a large pot, heat olive oil over medium heat. Add onions, carrots, and celery; cook and stir until onion is tender.",
-    "Stir in garlic, bay leaf, oregano, and basil; cook for 2 minutes.",
-    "Stir in lentils, and add water and tomatoes. Bring to a boil.",
-    "Reduce heat, and simmer for at least 1 hour. When ready to serve, stir in spinach and cook until it wilts.",
-    "Stir in vinegar, and season to taste with salt and pepper."
-  ],
-  "ingredients": [
-    {
-      "name": "Olive oil",
-      "quantity": 2,
-      "unit": "tablespoons"
-    },
-    {
-      "name": "Onion",
-      "quantity": 1,
-      "unit": "large"
-    },
-    {
-      "name": "Carrots",
-      "quantity": 2,
-      "unit": "medium"
-    },
-    {
-      "name": "Celery stalks",
-      "quantity": 2,
-      "unit": "medium"
-    },
-    {
-      "name": "Garlic cloves",
-      "quantity": 2,
-      "unit": "minced"
-    },
-    {
-      "name": "Bay leaf",
-      "quantity": 1,
-      "unit": "whole"
-    },
-    {
-      "name": "Dried oregano",
-      "quantity": 1,
-      "unit": "teaspoon"
-    },
-    {
-      "name": "Dried basil",
-      "quantity": 1,
-      "unit": "teaspoon"
-    },
-    {
-      "name": "Lentils",
-      "quantity": 1,
-      "unit": "cup"
-    },
-    {
-      "name": "Water",
-      "quantity": 4,
-      "unit": "cups"
-    },
-    {
-      "name": "Canned diced tomatoes",
-      "quantity": 1,
-      "unit": "can"
-    },
-    {
-      "name": "Spinach",
-      "quantity": 2,
-      "unit": "cups"
-    },
-    {
-      "name": "Vinegar",
-      "quantity": 2,
-      "unit": "tablespoons"
-    }
-  ],
-  "categories": ["Vegan", "Soup"]
+    "name": "Vegetarian Pasta Primavera",
+    "description": "A colorful and vibrant pasta dish packed with fresh vegetables.",
+    "cookTime": 20,
+    "prepTime": 15,
+    "servings": 4,
+    "instructions": [
+        "In a large pot of boiling salted water, cook pasta according to package instructions. Drain well.",
+        "In a large skillet, heat olive oil over medium high heat. Add garlic and cook until fragrant.",
+        "Add bell peppers, carrot and peas. Cook, stirring frequently, until vegetables are tender.",
+        "Stir in pasta, parmesan cheese and heavy cream. Cook, stirring constantly, until heated through and the cheese has melted.",
+        "Serve immediately, garnished with parsley, if desired."
+    ],
+    "ingredients": [
+        {
+            "name": "Pasta",
+            "quantity": 8,
+            "unit": "ounces"
+        },
+        {
+            "name": "Olive oil",
+            "quantity": 2,
+            "unit": "tablespoons"
+        },
+        {
+            "name": "Garlic",
+            "quantity": 2,
+            "unit": "cloves"
+        },
+        {
+            "name": "Red bell pepper",
+            "quantity": 1,
+            "unit": "large"
+        },
+        {
+            "name": "Green bell pepper",
+            "quantity": 1,
+            "unit": "large"
+        },
+        {
+            "name": "Carrot",
+            "quantity": 1,
+            "unit": "large"
+        },
+        {
+            "name": "Peas",
+            "quantity": 1,
+            "unit": "cup"
+        },
+        {
+            "name": "Parmesan cheese",
+            "quantity": 1/2,
+            "unit": "cup"
+        },
+        {
+            "name": "Heavy cream",
+            "quantity": 1/2,
+            "unit": "cup"
+        },
+        {
+            "name": "Parsley",
+            "quantity": 2,
+            "unit": "tablespoons"
+        }
+    ],
+    "categories": ["Vegetarian", "Pasta"]
 }
 
 
