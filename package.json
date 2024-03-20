@@ -4,7 +4,7 @@
   "description": "This Web application will have the following:",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest ",
     "start": "node app.js",
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
     "swagger": "node swagger.js"

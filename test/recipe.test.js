@@ -6,6 +6,9 @@ const {
   deleteRecipe
 } = require('../controllers/recipeCont');
 
+const Recipe = require('../schemas/recipeSchema');
+const Ingredient = require('../schemas/ingredientSchema');
+
 // Mocking dependencies
 jest.mock('../schemas/recipeSchema', () => ({
   find: jest.fn(),
@@ -63,6 +66,120 @@ describe('Recipe Controller', () => {
 
       expect(res.status).toHaveBeenCalledWith(500);
       expect(res.json).toHaveBeenCalledWith({ message: errorMessage });
+    });
+  });
+
+  // createRecipeWithIngredients
+
+  // getRecipebyid
+  describe('getRecipe', () => {
+    it('should return recipe by id', async () => {
+      const mockRecipe = {
+        _id: 'recipeId',
+        name: 'Test Recipe',
+        description: 'Test Description',
+        cookTime: 30,
+        prepTime: 15,
+        servings: 4,
+        instructions: 'Test Instructions',
+        ingredients: ['ingredientId1', 'ingredientId2'],
+        categories: ['Category 1', 'Category 2']
+      };
+      Recipe.findById.mockResolvedValue(mockRecipe);
+      const req = { params: { id: 'recipeId' } };
+      const res = { json: jest.fn() };
+
+      await getRecipe(req, res);
+
+      expect(Recipe.findById).toHaveBeenCalledWith('recipeId');
+      expect(res.json).toHaveBeenCalledWith(mockRecipe);
+    });
+
+    it('should handle errors', async () => {
+      const errorMessage = 'Internal server error';
+      Recipe.findById.mockRejectedValue(new Error(errorMessage));
+      const req = { params: { id: 'recipeId' } };
+      const res = { status: jest.fn().mockReturnThis(), json: jest.fn() };
+
+      await getRecipe(req, res);
+
+      expect(Recipe.findById).toHaveBeenCalledWith('recipeId');
+      expect(res.status).toHaveBeenCalledWith(500);
+      expect(res.json).toHaveBeenCalledWith({ message: errorMessage });
+    });
+  });
+
+  // updateRecipebyid
+  describe('updateRecipe', () => {
+    it('should update recipe by id', async () => {
+      const req = {
+        params: { id: 'recipeId' },
+        body: {
+          name: 'Test Recipe',
+          description: 'Test Description',
+          cookTime: 30,
+          prepTime: 15,
+          servings: 4,
+          instructions: 'Test Instructions',
+          ingredients: ['ingredientId1', 'ingredientId2'],
+          categories: ['Category 1', 'Category 2']
+        }
+      };
+      const mockUpdatedRecipe = {
+        _id: 'recipeId',
+        ...req.body
+      };
+      Recipe.findByIdAndUpdate.mockResolvedValue(mockUpdatedRecipe);
+      const res = { json: jest.fn() };
+
+      await updateRecipe(req, res);
+
+      expect(Recipe.findByIdAndUpdate).toHaveBeenCalledWith('recipeId', req.body, {
+        new: true
+      });
+      expect(res.json).toHaveBeenCalledWith(mockUpdatedRecipe);
+    });
+
+    it('should handle errors', async () => {
+      const errorMessage = 'Internal server error';
+      Recipe.findByIdAndUpdate.mockRejectedValue(new Error(errorMessage));
+      const req = {
+        params: { id: 'recipeId' },
+        body: {
+          // Request body with missing or invalid data
+        }
+      };
+      const res = { status: jest.fn().mockReturnThis(), json: jest.fn() };
+
+      await updateRecipe(req, res);
+
+      expect(Recipe.findByIdAndUpdate).toHaveBeenCalledWith('recipeId', req.body, {
+        new: true
+      });
+      expect(res.status).toHaveBeenCalledWith(500);
+      expect(res.json).toHaveBeenCalledWith({ message: errorMessage });
+    });
+  });
+
+  //deleteRecipebyid
+  describe('deleteRecipe', () => {
+    it('should delete recipe by id', async () => {
+      const mockReq = {
+        params: {
+          id: 'recipeId'
+        }
+      };
+      const mockRes = {
+        json: jest.fn(),
+        status: jest.fn(() => mockRes) // to allow chaining .status().json()
+      };
+
+      Recipe.findByIdAndDelete.mockResolvedValue(true);
+
+      await deleteRecipe(mockReq, mockRes);
+
+      expect(Recipe.findByIdAndDelete).toHaveBeenCalledWith('recipeId');
+      expect(mockRes.json).toHaveBeenCalledWith({ message: 'Recipe deleted successfully' });
     });
   });
 });
