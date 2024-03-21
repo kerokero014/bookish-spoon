@@ -1,13 +1,13 @@
 //developer: dayan frazao 
 const {
-    getComments,
-    GetcommentById,
-    createcomment,
-    updateComment,
-    deleteComment
+  getComments,
+  getCommentById,
+  createcomment,
+  updateComment,
+  deleteComment
   } = require('../controllers/commentCont');
   
-  const comment = require('../schemas/commentsSchema');
+  const Comment = require('../schemas/commentsSchema');
   
   // Mocking dependencies
   jest.mock('../schemas/commentsSchema', () => ({
@@ -18,9 +18,9 @@ const {
     save: jest.fn()
   }));
   
-  jest.mock('../schemas/commentsSchema', () => ({
-    save: jest.fn()
-  }));
+  //jest.mock('../schemas/commentsSchema', () => ({
+  //  save: jest.fn()
+  //}));
   
   describe('Comments Controller', () => {
     describe('getComments', () => {
@@ -28,14 +28,14 @@ const {
         const mockComments = [
           {
             name: 'Chocolate Chip Cookies',
-            description: 'A classic and delicious treat - chewy and soft chocolate chip cookies',
-            cookTime: 15
+            comment: 'A classic and delicious treat - chewy and soft chocolate chip cookies'
           }
         ];
-        const Comment = require('../schemas/commentsSchema');
+        //const Comment = require('../schemas/commentsSchema');
         Comment.find.mockResolvedValue(mockComments);
         const req = {};
-        const res = { json: jest.fn() };
+
+        const res = { status: jest.fn().mockReturnThis(), json: jest.fn() }
   
         await getComments(req, res);
   
@@ -43,7 +43,7 @@ const {
       });
       it('should handle errors', async () => {
         const errorMessage = 'Internal server error';
-        const Comment = require('../schemas/commentsSchema');
+        //const Comment = require('../schemas/commentsSchema');
         Comment.find.mockRejectedValue(new Error(errorMessage));
         const req = {};
         const res = { status: jest.fn().mockReturnThis(), json: jest.fn() };
@@ -58,18 +58,18 @@ const {
     // createRecipeWithIngredients
   
     // getRecipebyid
-    describe('getComment', () => {
+    describe('getCommentById', () => {
       it('should return comment by id', async () => {
         const mockRecipe = {
           _id: 'commentId',
           name: 'Test Recipe',
-          description: 'Test Description'
+          comment: 'Test Description'
         };
         Comment.findById.mockResolvedValue(mockRecipe);
         const req = { params: { id: 'commentId' } };
-        const res = { json: jest.fn() };
+        const res = { status: jest.fn().mockReturnThis(), json: jest.fn() };
   
-        await getComment(req, res);
+        await getCommentById(req, res);
   
         expect(Comment.findById).toHaveBeenCalledWith('commentId');
         expect(res.json).toHaveBeenCalledWith(mockRecipe);
@@ -81,7 +81,7 @@ const {
         const req = { params: { id: 'commentId' } };
         const res = { status: jest.fn().mockReturnThis(), json: jest.fn() };
   
-        await getComment(req, res);
+        await getCommentById(req, res);
   
         expect(Comment.findById).toHaveBeenCalledWith('commentId');
         expect(res.status).toHaveBeenCalledWith(500);
@@ -96,8 +96,7 @@ const {
           params: { id: 'commentId' },
           body: {
             name: 'Test Comment',
-            description: 'Test Description',
-            cookTime: 30
+            comment: 'Test Description',
           }
         };
         const mockUpdatedComment = {
@@ -105,7 +104,7 @@ const {
           ...req.body
         };
         Comment.findByIdAndUpdate.mockResolvedValue(mockUpdatedComment);
-        const res = { json: jest.fn() };
+        const res = { status: jest.fn().mockReturnThis(), json: jest.fn() };
   
         await updateComment(req, res);
   
@@ -128,7 +127,7 @@ const {
   
         await updateComment(req, res);
   
-        expect(Comment.findByIdAndUpdate).toHaveBeenCalledWith('recipeId', req.body, {
+        expect(Comment.findByIdAndUpdate).toHaveBeenCalledWith('commentId', req.body, {
           new: true
         });
         expect(res.status).toHaveBeenCalledWith(500);
