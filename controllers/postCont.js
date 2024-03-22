@@ -32,8 +32,8 @@ exports.getPostById = async (req, res) => {
 
 exports.createPost = async (req, res) => {
   try {
-    const { title, content } = req.body;
-    const post = new Post({ title, content });
+    const { title, content, authorid, authorName, date, recipeid, recipeName } = req.body;
+    const post = new Post({ title, content, authorid, authorName, date, recipeid, recipeName });
     const newPost = await post.save();
     res.status(201).json(newPost);
   } catch (error) {
@@ -43,10 +43,10 @@ exports.createPost = async (req, res) => {
 
 exports.updatePost = async (req, res) => {
   try {
-    const { title, content } = req.body;
+    const { title, content, authorid, authorName, date, recipeid, recipeName } = req.body;
     const updatedPost = await Post.findByIdAndUpdate(
       req.params.id,
-      { title, content },
+      { title, content, authorid, authorName, date, recipeid, recipeName },
       { new: true, runValidators: true }
     );
     if (!updatedPost) {
