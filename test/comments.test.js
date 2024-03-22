@@ -15,7 +15,8 @@ const {
     findById: jest.fn(),
     findByIdAndUpdate: jest.fn(),
     findByIdAndDelete: jest.fn(),
-    save: jest.fn()
+    save: jest.fn(),
+    deleteOne: jest.fn()
   }));
   
   //jest.mock('../schemas/commentsSchema', () => ({
@@ -103,20 +104,18 @@ const {
           _id: 'commentId',
           ...req.body
         };
-        Comment.findByIdAndUpdate.mockResolvedValue(mockUpdatedComment);
+        Comment.findById.mockResolvedValue(mockUpdatedComment);
         const res = { status: jest.fn().mockReturnThis(), json: jest.fn() };
   
         await updateComment(req, res);
   
-        expect(Comment.findByIdAndUpdate).toHaveBeenCalledWith('commentId', req.body, {
-          new: true
-        });
+        expect(Comment.findById).toHaveBeenCalledWith('commentId');
         expect(res.json).toHaveBeenCalledWith(mockUpdatedComment);
       });
   
       it('should handle errors', async () => {
         const errorMessage = 'Internal server error';
-        Comment.findByIdAndUpdate.mockRejectedValue(new Error(errorMessage));
+        Comment.findById.mockRejectedValue(new Error(errorMessage));
         const req = {
           params: { id: 'commentId' },
           body: {
@@ -127,7 +126,7 @@ const {
   
         await updateComment(req, res);
   
-        expect(Comment.findByIdAndUpdate).toHaveBeenCalledWith('commentId', req.body, {
+        expect(Comment.findById).toHaveBeenCalledWith('commentId', req.body, {
           new: true
         });
         expect(res.status).toHaveBeenCalledWith(500);
@@ -148,11 +147,11 @@ const {
           status: jest.fn(() => mockRes) // to allow chaining .status().json()
         };
   
-        Comment.findByIdAndDelete.mockResolvedValue(true);
+        Comment.findById.mockResolvedValue(true);
   
         await deleteComment(mockReq, mockRes);
   
-        expect(Comment.findByIdAndDelete).toHaveBeenCalledWith('commentId');
+        expect(Comment.findById).toHaveBeenCalledWith('commentId');
         expect(mockRes.json).toHaveBeenCalledWith({ message: 'Comment deleted successfully' });
       });
     });
