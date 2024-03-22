@@ -53,5 +53,67 @@ describe('User Controller Tests', () => {
     });
   });
 
-  // getUser
+  // getSignleUser
+  describe('Get single user', () => {
+    it('should return a user', async () => {
+      const mockUser = {
+        _id: 'userId1',
+        userFirstName: 'Test',
+        userLastName: 'User',
+        email: 'testexample@gmail.com',
+        password: 'password123@'
+      };
+      User.findById.mockResolvedValue(mockUser);
+      const req = { params: { userId: 'userId1' } };
+      const res = {
+        status: jest.fn(() => res),
+        json: jest.fn()
+      };
+
+      await getSingleUser(req, res);
+
+      expect(res.json).toHaveBeenCalledWith(mockUser);
+    });
+
+    it('should handle errors', async () => {
+      const errorMessage = 'Internal server error';
+      User.findById.mockRejectedValue(new Error(errorMessage));
+      const req = { params: { userId: 'userId1' } };
+      const res = {
+        status: jest.fn(() => res),
+        json: jest.fn()
+      };
+
+      await getSingleUser(req, res);
+
+      expect(res.status).toHaveBeenCalledWith(500);
+      expect(res.json).toHaveBeenCalledWith({ error: errorMessage });
+    });
+  });
+
+  // deleteUser
+  describe('Delete user', () => {
+    it('should delete a user', async () => {
+      const mockUser = {
+        _id: 'userId1',
+        userFirstName: 'Test',
+        userLastName: 'User',
+        email: 'testexample@gmail.com',
+        password: 'password123@'
+      };
+      User.findOneAndDelete.mockResolvedValue(mockUser);
+      const req = { params: { userId: 'userId1' } };
+      const res = {
+        status: jest.fn(() => res),
+        json: jest.fn()
+      };
+
+      await deleteUser(req, res);
+
+      expect(res.json).toHaveBeenCalledWith(mockUser);
+
+      const userId = req.params.userId;
+      expect(User.findOneAndDelete).toHaveBeenCalledWith({ _id: userId });
+    });
+  });
 });
