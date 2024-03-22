@@ -49,6 +49,11 @@ const userSchema = new Schema(
       type: Date,
       default: Date.now,
       immutable: true
+    },
+    recipeImage: {
+      // Moved recipeImage outside of the previous closing curly brace
+      type: String,
+      default: 'https://via.placeholder.com/150'
     }
   },
   { versionKey: false }
