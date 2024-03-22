@@ -53,7 +53,6 @@ const recipeSchema = new Schema(
     },
     recipeImage: {
       type: String
-      
     }
   },
   { versionKey: false }

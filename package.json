@@ -4,7 +4,7 @@
   "description": "This Web application will have the following:",
   "main": "index.js",
   "scripts": {
-    "test": "jest ",
+    "test": "jest",
     "start": "node app.js",
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
     "swagger": "node swagger.js"
@@ -25,5 +25,8 @@
     "prettier": "^3.2.5",
     "swagger-autogen": "^2.23.7",
     "swagger-ui-express": "^5.0.0"
+  },
+  "devDependencies": {
+    "jest-mock-req-res": "^1.0.2"
   }
 }
