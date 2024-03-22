@@ -1,80 +1,52 @@
 {
-  "name": "Vegan Lentil Soup",
-  "description": "A warm and comforting lentil soup with a blend of spices.",
-  "cookTime": 45,
+  "name": "Pão de Queijo",
+  "description": "A traditional Brazilian cheese bread, crispy on the outside and chewy on the inside, perfect as a snack or accompaniment.",
+  "cookTime": 25,
   "prepTime": 15,
-  "servings": 4,
+  "servings": 20,
   "instructions": [
-    "In a large pot, heat olive oil over medium heat. Add onions, carrots, and celery; cook and stir until onion is tender.",
-    "Stir in garlic, bay leaf, oregano, and basil; cook for 2 minutes.",
-    "Stir in lentils, and add water and tomatoes. Bring to a boil.",
-    "Reduce heat, and simmer for at least 1 hour. When ready to serve, stir in spinach and cook until it wilts.",
-    "Stir in vinegar, and season to taste with salt and pepper."
+    "Preheat your oven to 375°F (190°C). Grease a mini muffin tin or line it with paper liners.",
+    "In a saucepan, combine milk, water, and oil. Bring to a gentle boil over medium heat.",
+    "Slowly add tapioca flour to the liquid mixture while stirring constantly. Cook and stir until the mixture forms a thick, sticky dough.",
+    "Remove from heat and let the dough cool slightly.",
+    "Once the dough is cool enough to handle, mix in the eggs one at a time until fully incorporated.",
+    "Stir in grated cheese until well combined.",
+    "Spoon the dough into the prepared mini muffin tin, filling each cup about 3/4 full.",
+    "Bake in the preheated oven for 20-25 minutes or until the pão de queijo are puffed up and golden brown.",
+    "Remove from the oven and let cool for a few minutes before serving.",
+    "Enjoy the pão de queijo warm as a delicious snack or side dish!"
   ],
   "ingredients": [
     {
-      "name": "Olive oil",
-      "quantity": 2,
-      "unit": "tablespoons"
-    },
-    {
-      "name": "Onion",
-      "quantity": 1,
-      "unit": "large"
-    },
-    {
-      "name": "Carrots",
-      "quantity": 2,
-      "unit": "medium"
-    },
-    {
-      "name": "Celery stalks",
-      "quantity": 2
-    },
-    {
-      "name": "Garlic cloves",
-      "quantity": 2,
-      "unit": "minced"
-    },
-    {
-      "name": "Bay leaf",
-      "quantity": 1
-    },
-    {
-      "name": "Dried oregano",
-      "quantity": 1,
-      "unit": "teaspoon"
-    },
-    {
-      "name": "Dried basil",
-      "quantity": 1,
-      "unit": "teaspoon"
-    },
-    {
-      "name": "Lentils",
+      "name": "Milk",
       "quantity": 1,
       "unit": "cup"
     },
     {
       "name": "Water",
-      "quantity": 4,
-      "unit": "cups"
-    },
-    {
-      "name": "Canned diced tomatoes",
       "quantity": 1,
-      "unit": "can"
+      "unit": "cup"
     },
     {
-      "name": "Spinach",
+      "name": "Vegetable oil",
+      "quantity": 1,
+      "unit": "cup"
+    },
+    {
+      "name": "Tapioca flour",
       "quantity": 2,
       "unit": "cups"
     },
     {
-      "name": "Vinegar",
-      "quantity": 2,
-      "unit": "tablespoons"
+      "name": "Eggs",
+      "quantity": 2
+    },
+    {
+      "name": "Parmesan cheese",
+      "quantity": 1,
+      "unit": "cup",
+      "notes": "grated"
     }
   ],
-  "categories": ["Vegan", "Soup"]
+  "categories": ["Brazilian", "Snack", "Bread"]
 }

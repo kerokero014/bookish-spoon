@@ -14,6 +14,60 @@ GET http://localhost:3000/recipes
 POST http://localhost:3000/recipes
 Content-Type: application/json
 
+{
+  "name": "Pão de Queijo",
+  "description": "A traditional Brazilian cheese bread, crispy on the outside and chewy on the inside, perfect as a snack or accompaniment.",
+  "cookTime": 25,
+  "prepTime": 15,
+  "servings": 20,
+  "instructions": [
+    "Preheat your oven to 375°F (190°C). Grease a mini muffin tin or line it with paper liners.",
+    "In a saucepan, combine milk, water, and oil. Bring to a gentle boil over medium heat.",
+    "Slowly add tapioca flour to the liquid mixture while stirring constantly. Cook and stir until the mixture forms a thick, sticky dough.",
+    "Remove from heat and let the dough cool slightly.",
+    "Once the dough is cool enough to handle, mix in the eggs one at a time until fully incorporated.",
+    "Stir in grated cheese until well combined.",
+    "Spoon the dough into the prepared mini muffin tin, filling each cup about 3/4 full.",
+    "Bake in the preheated oven for 20-25 minutes or until the pão de queijo are puffed up and golden brown.",
+    "Remove from the oven and let cool for a few minutes before serving.",
+    "Enjoy the pão de queijo warm as a delicious snack or side dish!"
+  ],
+  "ingredients": [
+    {
+      "name": "Milk",
+      "quantity": 1,
+      "unit": "cup"
+    },
+    {
+      "name": "Water",
+      "quantity": 1,
+      "unit": "cup"
+    },
+    {
+      "name": "Vegetable oil",
+      "quantity": 1,
+      "unit": "cup"
+    },
+    {
+      "name": "Tapioca flour",
+      "quantity": 2,
+      "unit": "cups"
+    },
+    {
+      "name": "Eggs",
+      "quantity": 2,
+      "unit": "large"
+    },
+    {
+      "name": "Parmesan cheese",
+      "quantity": 1,
+      "unit": "cup",
+      "notes": "grated"
+    }
+  ],
+  "categories": ["Brazilian", "Snack", "Bread"]
+}
+
 
 //{
 //    referer to JSON foler for example input

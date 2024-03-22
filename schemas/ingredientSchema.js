@@ -15,6 +15,9 @@ const IngredientSchema = new Schema(
     unit: {
       type: String,
       required: true
+    },
+    notes: {
+      type: String 
     }
   },
   { versionKey: false }

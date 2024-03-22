@@ -30,7 +30,8 @@ exports.createRecipeWithIngredients = async (req, res) => {
       servings,
       instructions,
       ingredients,
-      categories
+      categories,
+      image // Assuming the image is sent in the request body
     } = req.body;
 
     // Create ingredient documents
@@ -38,6 +39,12 @@ exports.createRecipeWithIngredients = async (req, res) => {
 
     // Extract IDs of saved ingredients
     const ingredientIds = savedIngredients.map((ingredient) => ingredient._id);
+
+    // Convert image to base64
+    let imageBase64 = '';
+    if (image) {
+      imageBase64 = image.toString('base64');
+    }
 
     // Create recipe document
     const recipe = new Recipe({
@@ -48,7 +55,8 @@ exports.createRecipeWithIngredients = async (req, res) => {
       servings,
       instructions,
       ingredients: ingredientIds,
-      categories
+      categories,
+      image: imageBase64 // Store the image as base64 in the recipe document
     });
 
     // Save recipe
