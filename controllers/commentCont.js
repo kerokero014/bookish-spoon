@@ -51,18 +51,31 @@ exports.createcomment = async (req, res) => {
 //UpdateIngredient with Validation
 exports.updateComment = async (req, res) => {
   try {
-    const comment = await Comment.findById(req.params.id);
+    const comment = await Comment.findByIdAndUpdate(req.params.id, req.body, {
+         new: true
+        });
     if (!comment) {
       return res.status(404).json({ message: 'comment not found' });
     }
-    comment.name = req.body.name;
-    comment.comment = req.body.comment;
-
-    const updatedComment = await comment.save();
-    res.status(200).json(updatedComment);
+   // comment.name = req.body.name;
+   // comment.comment = req.body.comment;
+//
+   // const updatedComment = await comment.save();
+    res.status(200).json(comment);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
+  //try {
+  //  const recipe = await Recipe.findByIdAndUpdate(req.params.id, req.body, {
+  //    new: true
+  //  });
+  //  if (!recipe) {
+  //    return res.status(404).json({ message: 'Recipe not found' });
+  //  }
+  //  res.json(recipe);
+  //} catch (error) {
+  //  res.status(500).json({ message: error.message });
+  //}
 };
 
 //DeleteIngredient with Validation
@@ -74,7 +87,7 @@ exports.deleteComment = async (req, res) => {
     }
     const result = await Comment.deleteOne({ _id: comment });
     console.log(result);
-    res.status(200).json({ message: 'Ingredient deleted successfully' });
+    res.status(200).json({ message: 'Comment deleted successfully' });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

@@ -90,7 +90,7 @@ const {
       });
     });
   
-    // updateRecipebyid
+    // updateCommentbyid
     describe('updateComment', () => {
       it('should update comment by id', async () => {
         const req = {
@@ -102,20 +102,23 @@ const {
         };
         const mockUpdatedComment = {
           _id: 'commentId',
-          ...req.body
+          name: req.body.name,
+          comment: req.body.comment,
         };
-        Comment.findById.mockResolvedValue(mockUpdatedComment);
+        Comment.findByIdAndUpdate.mockResolvedValue(mockUpdatedComment);
         const res = { status: jest.fn().mockReturnThis(), json: jest.fn() };
   
         await updateComment(req, res);
   
-        expect(Comment.findById).toHaveBeenCalledWith('commentId');
+        expect(Comment.findByIdAndUpdate).toHaveBeenCalledWith('commentId', req.body, {
+          new: true
+        });
         expect(res.json).toHaveBeenCalledWith(mockUpdatedComment);
       });
   
       it('should handle errors', async () => {
         const errorMessage = 'Internal server error';
-        Comment.findById.mockRejectedValue(new Error(errorMessage));
+        Comment.findByIdAndUpdate.mockRejectedValue(new Error(errorMessage));
         const req = {
           params: { id: 'commentId' },
           body: {
@@ -126,7 +129,7 @@ const {
   
         await updateComment(req, res);
   
-        expect(Comment.findById).toHaveBeenCalledWith('commentId', req.body, {
+        expect(Comment.findByIdAndUpdate).toHaveBeenCalledWith('commentId', req.body, {
           new: true
         });
         expect(res.status).toHaveBeenCalledWith(500);
