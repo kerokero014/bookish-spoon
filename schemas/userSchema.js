@@ -49,6 +49,10 @@ const userSchema = new Schema(
       type: Date,
       default: Date.now,
       immutable: true
+    },
+    UserImage: {
+      type: String,
+      default: 'https://via.placeholder.com/150'
     }
   },
   { versionKey: false }
