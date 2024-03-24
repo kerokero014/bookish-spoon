@@ -7,7 +7,9 @@
   },
   "host": "recipebook-api-xyi2.onrender.com",
   "basePath": "/",
-  "schemes": ["https"],
+  "schemes": [
+    "https"
+  ],
   "paths": {
     "/recipes/": {
       "get": {
@@ -52,6 +54,9 @@
                   "example": "any"
                 },
                 "categories": {
+                  "example": "any"
+                },
+                "image": {
                   "example": "any"
                 }
               }
@@ -105,11 +110,11 @@
           "200": {
             "description": "OK"
           },
-          "400": {
-            "description": "Bad Request"
-          },
           "404": {
             "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
@@ -206,6 +211,9 @@
           },
           "404": {
             "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
@@ -483,21 +491,6 @@
             "in": "path",
             "required": true,
             "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "example": "any"
-                },
-                "comment": {
-                  "example": "any"
-                }
-              }
-            }
           }
         ],
         "responses": {
@@ -561,6 +554,21 @@
                 },
                 "content": {
                   "example": "any"
+                },
+                "authorid": {
+                  "example": "any"
+                },
+                "authorName": {
+                  "example": "any"
+                },
+                "date": {
+                  "example": "any"
+                },
+                "recipeid": {
+                  "example": "any"
+                },
+                "recipeName": {
+                  "example": "any"
                 }
               }
             }
@@ -618,6 +626,21 @@
                   "example": "any"
                 },
                 "content": {
+                  "example": "any"
+                },
+                "authorid": {
+                  "example": "any"
+                },
+                "authorName": {
+                  "example": "any"
+                },
+                "date": {
+                  "example": "any"
+                },
+                "recipeid": {
+                  "example": "any"
+                },
+                "recipeName": {
                   "example": "any"
                 }
               }
