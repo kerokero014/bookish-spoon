@@ -73,7 +73,7 @@
         }
       }
     },
-    "/recipes/recipes/{name}": {
+    "/recipes/{name}": {
       "get": {
         "description": "",
         "parameters": [
@@ -162,7 +162,7 @@
         }
       }
     },
-    "/recipes/recipes/{category}": {
+    "/recipes/{category}": {
       "get": {
         "description": "",
         "parameters": [
