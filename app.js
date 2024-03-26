@@ -7,7 +7,17 @@ const env = require('dotenv').config();
 const routes = require('./routes');
 const cors = require('cors');
 
-//mogoose connection
+// Require JWT authentication middleware
+const { auth } = require('express-oauth2-jwt-bearer');
+
+// Define JWT check middleware
+const jwtCheck = auth({
+  audience: 'https://CookingRecipe-api.com',
+  issuerBaseURL: 'https://dev-sa6dftpsfnputuuv.us.auth0.com/',
+  tokenSigningAlg: 'RS256'
+});
+
+// MongoDB connection
 mongoose
   .connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
@@ -20,10 +30,17 @@ mongoose
     console.error(`DB Connection Error: ${err.message}`);
   });
 
+// Middleware setup
 app.use(express.json());
 app.use(cors());
+
+// Apply JWT check middleware to all routes
+app.use(jwtCheck);
+
+// Routes
 app.use('/', routes);
 
+// Start server
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
