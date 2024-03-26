@@ -6,7 +6,7 @@ const recipeController = require('../controllers/recipeCont');
 router.get('/', recipeController.getAllRecipes);
 
 // Get a recipe by ID
-router.get('/recipe/:id', recipeController.getRecipe);
+router.get('/:id', recipeController.getRecipe);
 
 // Get recipes by category
 router.get('/category/:category', recipeController.getRecipesByCategory);
