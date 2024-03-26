@@ -109,3 +109,31 @@ exports.deleteRecipe = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+
+//Controller for retrieving recipes by category
+
+exports.getRecipesByCategory = async (req, res) => {
+  try {
+    const recipes = await Recipe.find({ categories: req.params.category });
+    res.json(recipes);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+}
+
+//Controller for retrieving recipes by ingredient
+
+exports.getRecipesByIngredient = async (req, res) => {
+  try {
+    const ingredient = await Ingredient.findOne({ name: req.params.ingredient });
+    if (!ingredient) {
+      return res.status(404).json({ message: 'Ingredient not found' });
+    }
+    const recipes = await Recipe.find({ ingredients: ingredient._id });
+    res.json(recipes);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+}
+

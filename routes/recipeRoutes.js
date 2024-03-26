@@ -11,6 +11,9 @@ router.post('/', recipeController.createRecipeWithIngredients);
 // Get a recipe by ID
 router.get('/:id', recipeController.getRecipe);
 
+// Get recipes by category
+router.get('/recipes/:category', recipeController.getRecipesByCategory);
+
 // Update a recipe by ID
 router.put('/:id', recipeController.updateRecipe);
 
