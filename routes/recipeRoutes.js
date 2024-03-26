@@ -6,14 +6,13 @@ const recipeController = require('../controllers/recipeCont');
 router.get('/', recipeController.getAllRecipes);
 
 // Get recipes by name
-router.get('/recipes/:name', recipeController.getRecipesByName);
+router.get('/:name', recipeController.getRecipesByName);
 
 // Get a recipe by ID
 router.get('/:id', recipeController.getRecipe);
 
 // Get recipes by category
-router.get('/recipes/:category', recipeController.getRecipesByCategory);
-
+router.get('/:category', recipeController.getRecipesByCategory);
 
 // Create a new recipe
 router.post('/', recipeController.createRecipeWithIngredients);
