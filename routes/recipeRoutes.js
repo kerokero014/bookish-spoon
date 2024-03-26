@@ -9,7 +9,7 @@ router.get('/', recipeController.getAllRecipes);
 router.get('/name/:name', recipeController.getRecipesByName);
 
 // Get a recipe by ID
-router.get('recipe/:id', recipeController.getRecipe);
+router.get('/recipe/:id', recipeController.getRecipe);
 
 // Get recipes by category
 router.get('/category/:category', recipeController.getRecipesByCategory);
