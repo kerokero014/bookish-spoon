@@ -94,7 +94,7 @@
         }
       }
     },
-    "/recipesrecipe/{id}": {
+    "/recipes/recipe/{id}": {
       "get": {
         "description": "",
         "parameters": [
