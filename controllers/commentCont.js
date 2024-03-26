@@ -52,15 +52,15 @@ exports.createcomment = async (req, res) => {
 exports.updateComment = async (req, res) => {
   try {
     const comment = await Comment.findByIdAndUpdate(req.params.id, req.body, {
-         new: true
-        });
+      new: true
+    });
     if (!comment) {
       return res.status(404).json({ message: 'comment not found' });
     }
-   // comment.name = req.body.name;
-   // comment.comment = req.body.comment;
-//
-   // const updatedComment = await comment.save();
+    // comment.name = req.body.name;
+    // comment.comment = req.body.comment;
+    //
+    // const updatedComment = await comment.save();
     res.status(200).json(comment);
   } catch (error) {
     res.status(500).json({ message: error.message });
