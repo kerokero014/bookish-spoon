@@ -73,7 +73,7 @@
         }
       }
     },
-    "/recipes/recipe/{id}": {
+    "/recipes/{id}": {
       "get": {
         "description": "",
         "parameters": [
@@ -95,30 +95,7 @@
             "description": "Internal Server Error"
           }
         }
-      }
-    },
-    "/recipes/category/{category}": {
-      "get": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "category",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/recipes/{id}": {
+      },
       "put": {
         "description": "",
         "parameters": [
@@ -157,6 +134,27 @@
           },
           "404": {
             "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/recipes/category/{category}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "category",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
           },
           "500": {
             "description": "Internal Server Error"
