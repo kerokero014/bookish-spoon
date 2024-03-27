@@ -11,11 +11,11 @@ const cors = require('cors');
 const { auth } = require('express-oauth2-jwt-bearer');
 
 // Define JWT check middleware
-const jwtCheck = auth({
-  audience: 'https://CookingRecipe-api.com',
-  issuerBaseURL: 'https://dev-sa6dftpsfnputuuv.us.auth0.com/',
-  tokenSigningAlg: 'RS256'
-});
+//const jwtCheck = auth({
+//  audience: 'https://CookingRecipe-api.com',
+//  issuerBaseURL: 'https://dev-sa6dftpsfnputuuv.us.auth0.com/',
+//  tokenSigningAlg: 'RS256'
+//});
 
 // MongoDB connection
 mongoose
@@ -35,7 +35,7 @@ app.use(express.json());
 app.use(cors());
 
 // Apply JWT check middleware to all routes
-app.use(jwtCheck);
+//app.use(jwtCheck);
 
 // Routes
 app.use('/', routes);
