@@ -6,6 +6,8 @@ const mongoose = require('mongoose');
 const env = require('dotenv').config();
 const routes = require('./routes');
 const cors = require('cors');
+const { auth } = require('express-oauth2-jwt-bearer');
+
 
 // Auth0 setup
 const jwtCheck = auth({
