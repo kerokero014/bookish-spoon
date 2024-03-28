@@ -6,11 +6,9 @@ const mongoose = require('mongoose');
 const env = require('dotenv').config();
 const routes = require('./routes');
 const cors = require('cors');
-
-// Require JWT authentication middleware
 //const { auth } = require('express-oauth2-jwt-bearer');
 
-// Define JWT check middleware
+// Auth0 setup
 //const jwtCheck = auth({
 //  audience: 'https://CookingRecipe-api.com',
 //  issuerBaseURL: 'https://dev-sa6dftpsfnputuuv.us.auth0.com/',
@@ -31,15 +29,10 @@ mongoose
   });
 
 // Middleware setup
-app.use(express.json());
-app.use(cors());
-
-// Apply JWT check middleware to all routes
 //app.use(jwtCheck);
 
-//app.get('/authorized', function (req, res) {
-//  res.send('Secured Resource');
-//});
+app.use(express.json());
+app.use(cors());
 
 // Routes
 app.use('/', routes);
