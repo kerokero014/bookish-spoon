@@ -8,14 +8,14 @@ const routes = require('./routes');
 const cors = require('cors');
 
 // Require JWT authentication middleware
-const { auth } = require('express-oauth2-jwt-bearer');
+//const { auth } = require('express-oauth2-jwt-bearer');
 
 // Define JWT check middleware
-const jwtCheck = auth({
-  audience: 'https://CookingRecipe-api.com',
-  issuerBaseURL: 'https://dev-sa6dftpsfnputuuv.us.auth0.com/',
-  tokenSigningAlg: 'RS256'
-});
+//const jwtCheck = auth({
+//  audience: 'https://CookingRecipe-api.com',
+//  issuerBaseURL: 'https://dev-sa6dftpsfnputuuv.us.auth0.com/',
+//  tokenSigningAlg: 'RS256'
+//});
 
 // MongoDB connection
 mongoose
@@ -35,11 +35,11 @@ app.use(express.json());
 app.use(cors());
 
 // Apply JWT check middleware to all routes
-app.use(jwtCheck);
+//app.use(jwtCheck);
 
-app.get('/authorized', function (req, res) {
-  res.send('Secured Resource');
-});
+//app.get('/authorized', function (req, res) {
+//  res.send('Secured Resource');
+//});
 
 // Routes
 app.use('/', routes);
