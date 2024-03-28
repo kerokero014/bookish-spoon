@@ -15,6 +15,9 @@ const jwtCheck = auth({
   tokenSigningAlg: 'RS256'
 });
 
+app.use(express.json());
+app.use(cors());
+
 // MongoDB connection
 mongoose
   .connect(process.env.MONGODB_URI, {
@@ -28,26 +31,15 @@ mongoose
     console.error(`DB Connection Error: ${err.message}`);
   });
 
-app.use(jwtCheck);
-app.use(express.json());
-app.use(cors());
-
-//public route
-app.get('/recipes', (req, res) => {
-  res.send("Hello from a public endpoint! You don't need to be authenticated to see this.");
+app.get('/', (req, res) => {
+  res.send('Hello World!');
 });
 
 // Routes
 app.use('/', routes);
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
-
-// Protected endpoint that requires authentication
-app.get('/authorized', function (req, res) {
-  res.send('Secured Resource');
-});
+// Auth0 middleware
+app.use(jwtCheck);
 
 // Start server
 app.listen(port, () => {
