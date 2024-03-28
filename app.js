@@ -6,9 +6,8 @@ const mongoose = require('mongoose');
 const env = require('dotenv').config();
 const routes = require('./routes');
 const cors = require('cors');
-const { auth } = require('express-oauth2-jwt-bearer');
 
-//// Auth0 setup
+// Auth0 setup
 const jwtCheck = auth({
   audience: 'https://CookingRecipe-api.com',
   issuerBaseURL: 'https://dev-sa6dftpsfnputuuv.us.auth0.com/',
@@ -35,11 +34,11 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
+// Auth0 middleware
+app.use('/users', jwtCheck, routes);
+
 // Routes
 app.use('/', routes);
-
-// Auth0 middleware
-app.use(jwtCheck);
 
 // Start server
 app.listen(port, () => {
