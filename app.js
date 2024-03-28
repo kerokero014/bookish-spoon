@@ -6,14 +6,14 @@ const mongoose = require('mongoose');
 const env = require('dotenv').config();
 const routes = require('./routes');
 const cors = require('cors');
-//const { auth } = require('express-oauth2-jwt-bearer');
+const { auth } = require('express-oauth2-jwt-bearer');
 
 // Auth0 setup
-//const jwtCheck = auth({
-//  audience: 'https://CookingRecipe-api.com',
-//  issuerBaseURL: 'https://dev-sa6dftpsfnputuuv.us.auth0.com/',
-//  tokenSigningAlg: 'RS256'
-//});
+const jwtCheck = auth({
+  audience: 'https://CookingRecipe-api.com',
+  issuerBaseURL: 'https://dev-sa6dftpsfnputuuv.us.auth0.com/',
+  tokenSigningAlg: 'RS256'
+});
 
 // MongoDB connection
 mongoose
@@ -28,12 +28,11 @@ mongoose
     console.error(`DB Connection Error: ${err.message}`);
   });
 
-// Middleware setup
-//app.use(jwtCheck);
-
+  
 app.use(express.json());
 app.use(cors());
 
+app.use(jwtCheck);
 // Routes
 app.use('/', routes);
 
