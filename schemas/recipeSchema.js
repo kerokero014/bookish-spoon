@@ -37,7 +37,7 @@ const recipeSchema = new Schema(
     },
     ingredients: [
       {
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'Ingredient', // Reference to the Ingredient model
         required: [true, 'Ingredients are required']
       }
