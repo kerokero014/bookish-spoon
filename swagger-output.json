@@ -141,19 +141,6 @@
         }
       }
     },
-    "/recipes/ingredients": {
-      "get": {
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
     "/recipes/category/{category}": {
       "get": {
         "description": "",
