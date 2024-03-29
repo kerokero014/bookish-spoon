@@ -10,6 +10,18 @@
 const Recipe = require('../schemas/recipeSchema');
 const Ingredient = require('../schemas/ingredientSchema');
 
+// Controller for retrieving all recipes and display ingredient as well
+exports.getAllRecipesWithIngredients = async (req, res) => {
+  try {
+    const recipes = await Recipe.find().populate('ingredients');
+    res.json(recipes);
+  }
+  catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+
 // Controller for retrieving all recipes
 exports.getAllRecipes = async (req, res) => {
   try {

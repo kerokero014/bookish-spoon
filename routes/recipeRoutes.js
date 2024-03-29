@@ -8,6 +8,9 @@ router.get('/', recipeController.getAllRecipes);
 // Get a recipe by ID
 router.get('/:id', recipeController.getRecipe);
 
+// Get all recipes with ingredients
+router.get('/ingredients', recipeController.getAllRecipesWithIngredients);
+
 // Get recipes by category
 router.get('/category/:category', recipeController.getRecipesByCategory);
 

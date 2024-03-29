@@ -2,7 +2,7 @@
 
 //get all recipes
 ###
-GET http://localhost:3000/recipes//category/Vegan
+GET http://localhost:3000/recipes/ingredients
 
 
 //get a single recipe
