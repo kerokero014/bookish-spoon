@@ -14,8 +14,8 @@ const bcrypt = require('bcryptjs');
 // Create a new user
 exports.createUser = async (req, res) => {
   try {
-    const { userFirstName, userLastName, password, email } = req.body;
-    if (!userFirstName || !userLastName || !password || !email) {
+    const { userFirstName, userLastName, password, email, Auth0Id } = req.body;
+    if (!userFirstName || !userLastName || !password || !email || !Auth0Id) {
       return res.status(400).json({ error: 'All fields are required' });
     }
 
@@ -26,7 +26,8 @@ exports.createUser = async (req, res) => {
       userFirstName,
       userLastName,
       password: hashedPassword,
-      email
+      email,
+      Auth0Id
     });
 
     await newUser.save();

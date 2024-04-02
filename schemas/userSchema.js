@@ -39,6 +39,10 @@ const userSchema = new Schema(
       lowercase: true,
       trim: true
     },
+    Auth0Id: {
+      type: String,
+      default: '',
+    },
     recipes: [
       {
         type: Schema.Types.ObjectId,
