@@ -19,17 +19,8 @@ const userSchema = new Schema(
     },
     password: {
       type: String,
-      required: true,
-      minlength: 5,
-      maxlength: 72, // Adjusted maximum length
-      validate: {
-        validator: function (v) {
-          // New validation: password must contain at least one number, one uppercase letter, one lowercase letter, and one special character
-          return /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])/.test(v);
-        },
-        message:
-          'Password must contain at least one number, one uppercase letter, one lowercase letter, and one special character'
-      }
+      minlength: 4,
+      maxlength: 9 // Adjusted maximum length
     },
     email: {
       type: String,
