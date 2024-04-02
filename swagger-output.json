@@ -7,7 +7,9 @@
   },
   "host": "recipebook-api-xyi2.onrender.com",
   "basePath": "/",
-  "schemes": ["https"],
+  "schemes": [
+    "https"
+  ],
   "paths": {
     "/recipes/": {
       "get": {
