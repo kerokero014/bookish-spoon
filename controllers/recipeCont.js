@@ -72,7 +72,7 @@ exports.createRecipeWithIngredients = async (req, res) => {
 // Controller for retrieving a recipe by ID
 exports.getRecipe = async (req, res) => {
   try {
-    const recipe = await Recipe.findById(req.params.id);
+    const recipe = await Recipe.findById(req.params.id).populate('ingredients');
     if (!recipe) {
       return res.status(404).json({ message: 'Recipe not found' });
     }
