@@ -8,7 +8,6 @@ const routes = require('./routes');
 const cors = require('cors');
 const { auth } = require('express-oauth2-jwt-bearer');
 
-
 // Auth0 setup
 const jwtCheck = auth({
   audience: 'https://CookingRecipe-api.com',

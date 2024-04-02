@@ -8,11 +8,10 @@ const IngredientSchema = new Schema(
       type: String,
       required: [true, 'Name is required'],
       maxlength: [200, 'Name cannot be more than 200 characters'] // Maximum 200 characters
-      
     },
     quantity: {
       type: Number,
-      required: [true, 'Quantity is required'],
+      required: [true, 'Quantity is required']
     },
     unit: {
       type: String,

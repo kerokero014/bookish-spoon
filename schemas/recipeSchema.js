@@ -23,7 +23,7 @@ const recipeSchema = new Schema(
     },
     prepTime: {
       type: Number,
-      required: [true, 'Preparation time is required'], 
+      required: [true, 'Preparation time is required'],
       min: [1, 'Preparation time should be at least 1 minute'] // Minimum 1 minute
     },
     servings: {
