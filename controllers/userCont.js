@@ -95,9 +95,26 @@ exports.updateUser = async (req, res) => {
   }
 };
 
+// Get user by ID
 exports.getUser = async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
+    if (!user) {
+      return res.status(404).send('User not found');
+    }
+    res.status(200).json(user);
+  } catch (error) {
+    if (error instanceof mongoose.Error.CastError) {
+      return res.status(400).send('Invalid user id');
+    }
+    res.status(500).json({ error: error.message });
+  }
+};
+
+//Get user by name
+exports.getUserByName = async (req, res) => {
+  try {
+    const user = await User.find({ userFirstName: req.params.userFirstName });
     if (!user) {
       return res.status(404).send('User not found');
     }

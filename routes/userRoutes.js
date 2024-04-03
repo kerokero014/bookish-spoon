@@ -13,4 +13,6 @@ router.put('/:id', user.updateUser);
 
 router.get('/:id', user.getUser);
 
+router.get('/name', user.getUserByName);
+
 module.exports = router;
