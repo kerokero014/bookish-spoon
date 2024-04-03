@@ -7,16 +7,16 @@ const postSchema = new Schema(
       type: String,
       required: true,
       unique: true,
-      minlength: 3,
-      maxlength: 100, // New validation: maximum length
+      minlength: [3, 'Title should be at least 3 characters'],
+      maxlength: [100, 'Title cannot be more than 100 characters'], // New validation: maximum length
       trim: true // New validation: remove leading and trailing spaces
     },
     content: {
       type: String,
       required: true,
       unique: true,
-      minlength: 3,
-      maxlength: 5000, // New validation: maximum length
+      minlength: [3, 'The content should be at least 3 characters'],
+      maxlength: [5000, 'The content cannot be more than 5000 characters'],
       trim: true // New validation: remove leading and trailing spaces
     },
     authorid: {
