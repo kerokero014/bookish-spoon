@@ -178,9 +178,6 @@
                 "userLastName": {
                   "example": "any"
                 },
-                "password": {
-                  "example": "any"
-                },
                 "email": {
                   "example": "any"
                 },
@@ -260,9 +257,6 @@
                   "example": "any"
                 },
                 "userLastName": {
-                  "example": "any"
-                },
-                "password": {
                   "example": "any"
                 },
                 "email": {
