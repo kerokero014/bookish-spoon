@@ -5,17 +5,17 @@ const { auth } = require('express-oauth2-jwt-bearer');
 //TODO: Uncomment Route as you finish the Controller for your Controller
 
 //// Auth0 setup
-const jwtCheck = auth({
-  audience: 'https://CookingRecipe-api.com',
-  issuerBaseURL: 'https://dev-sa6dftpsfnputuuv.us.auth0.com/',
-  tokenSigningAlg: 'RS256'
-});
+//const jwtCheck = auth({
+//  audience: 'https://CookingRecipe-api.com',
+//  issuerBaseURL: 'https://dev-sa6dftpsfnputuuv.us.auth0.com/',
+//  tokenSigningAlg: 'RS256'
+//});
 
 //Routes for recipes
 router.use('/recipes', require('./recipeRoutes'));
 //
 ////routes for users
-router.use('/users', jwtCheck, require('./userRoutes'));
+router.use('/users', require('./userRoutes'));
 //
 ////routes for ingredients
 router.use('/ingredients', require('./ingredientRoute'));

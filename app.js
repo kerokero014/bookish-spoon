@@ -36,7 +36,7 @@ app.get('/', (req, res) => {
 });
 
 // Auth0 middleware
-app.use('/users', jwtCheck, routes);
+//app.use('/users', jwtCheck, routes);
 
 // Routes
 app.use('/', routes);
