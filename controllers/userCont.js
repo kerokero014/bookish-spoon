@@ -111,18 +111,26 @@ exports.getUser = async (req, res) => {
   }
 };
 
-//Get user by name
+//Get single user by name
 exports.getUserByName = async (req, res) => {
   try {
-    const user = await User.find({ userFirstName: req.params.userFirstName });
-    if (!user) {
-      return res.status(404).send('User not found');
+    const { name } = req.params;
+
+    // Check if name parameter is provided
+    if (!name) {
+      return res.status(400).json({ message: 'Name parameter is required' });
     }
+
+    const user = await User.findOne({ userFirstName: name });
+
+    // Check if user with the provided name exists
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
     res.status(200).json(user);
   } catch (error) {
-    if (error instanceof mongoose.Error.CastError) {
-      return res.status(400).send('Invalid user id');
-    }
-    res.status(500).json({ error: error.message });
+    // Handle any unexpected errors
+    res.status(500).json({ message: 'Error finding user by name', error: error.message });
   }
 };
