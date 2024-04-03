@@ -14,16 +14,15 @@ const bcrypt = require('bcryptjs');
 // Create a new user
 exports.createUser = async (req, res) => {
   try {
-    const { userFirstName, userLastName, email, Auth0Id } = req.body;
-    if (!userFirstName || !userLastName  || !email || !Auth0Id) {
+    const { userFirstName, userLastName, email, Auth0Id, recipeId } = req.body;
+    if (!userFirstName || !userLastName || !email || !Auth0Id || !recipeId) {
       return res.status(400).json({ error: 'All fields are required' });
     }
-
-
     const newUser = new User({
       userFirstName,
       userLastName,
       email,
+      recipeId,
       Auth0Id
     });
 
@@ -64,9 +63,11 @@ exports.deleteContact = async (req, res) => {
   }
 };
 
+// update User by Autho0id
 exports.updateUser = async (req, res) => {
   try {
-    const { userFirstName, userLastName,email } = req.body;
+    const Auth0Id = req.params.id;
+    const { userFirstName, userLastName, email } = req.body;
 
     // Construct the update object
     const updateFields = {};
@@ -75,7 +76,7 @@ exports.updateUser = async (req, res) => {
     if (email) updateFields.email = email;
 
     // Update the user
-    const updatedUser = await User.findByIdAndUpdate(req.params.id, updateFields, {
+    const updatedUser = await User.findByIdAndUpdate(Auth0Id, updateFields, {
       new: true,
       runValidators: true
     });
