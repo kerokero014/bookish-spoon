@@ -14,18 +14,15 @@ const bcrypt = require('bcryptjs');
 // Create a new user
 exports.createUser = async (req, res) => {
   try {
-    const { userFirstName, userLastName, password, email, Auth0Id } = req.body;
-    if (!userFirstName || !userLastName || !password || !email || !Auth0Id) {
+    const { userFirstName, userLastName, email, Auth0Id } = req.body;
+    if (!userFirstName || !userLastName  || !email || !Auth0Id) {
       return res.status(400).json({ error: 'All fields are required' });
     }
 
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(password, salt);
 
     const newUser = new User({
       userFirstName,
       userLastName,
-      password: hashedPassword,
       email,
       Auth0Id
     });
@@ -69,20 +66,13 @@ exports.deleteContact = async (req, res) => {
 
 exports.updateUser = async (req, res) => {
   try {
-    const { userFirstName, userLastName, password, email } = req.body;
+    const { userFirstName, userLastName,email } = req.body;
 
     // Construct the update object
     const updateFields = {};
     if (userFirstName) updateFields.userFirstName = userFirstName;
     if (userLastName) updateFields.userLastName = userLastName;
     if (email) updateFields.email = email;
-
-    // Hash the password if it exists in the request body
-    if (password) {
-      const salt = await bcrypt.genSalt(10);
-      const hashedPassword = await bcrypt.hash(password, salt);
-      updateFields.password = hashedPassword;
-    }
 
     // Update the user
     const updatedUser = await User.findByIdAndUpdate(req.params.id, updateFields, {
