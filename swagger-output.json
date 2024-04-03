@@ -184,7 +184,7 @@
                 "Auth0Id": {
                   "example": "any"
                 },
-                "recipeId": {
+                "recipes": {
                   "example": "any"
                 }
               }
@@ -263,6 +263,9 @@
                   "example": "any"
                 },
                 "email": {
+                  "example": "any"
+                },
+                "recipes": {
                   "example": "any"
                 }
               }
