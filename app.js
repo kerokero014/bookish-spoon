@@ -32,7 +32,7 @@ mongoose
   });
 
 app.get('/', (req, res) => {
-  res.send('Hello World!');
+  res.send('Recipe Book API!');
 });
 
 // Auth0 middleware

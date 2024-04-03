@@ -37,7 +37,8 @@ exports.getCommentById = async (req, res) => {
 exports.createcomment = async (req, res) => {
   const comment = new Comment({
     name: req.body.name,
-    comment: req.body.comment
+    comment: req.body.comment,
+    recipeid: req.body.recipeid
   });
 
   try {
@@ -51,9 +52,16 @@ exports.createcomment = async (req, res) => {
 //UpdateIngredient with Validation
 exports.updateComment = async (req, res) => {
   try {
-    const comment = await Comment.findByIdAndUpdate(req.params.id, req.body, {
-      new: true
-    });
+    const comment = await Comment.findByIdAndUpdate(
+      req.params.id,
+      {
+        ...req.body,
+        recipeid: recipeid.params.id
+      },
+      {
+        new: true
+      }
+    );
     if (!comment) {
       return res.status(404).json({ message: 'comment not found' });
     }
