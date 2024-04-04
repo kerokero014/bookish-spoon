@@ -114,14 +114,14 @@ exports.getUser = async (req, res) => {
 //Get single user by name
 exports.getUserByName = async (req, res) => {
   try {
-    const { name } = req.params;
+    const { userFirstName } = req.params;
 
     // Check if name parameter is provided
-    if (!name) {
+    if (!userFirstName) {
       return res.status(400).json({ message: 'Name parameter is required' });
     }
 
-    const user = await User.findOne({ userFirstName: name });
+    const user = await User.findOne({ userFirstName });
 
     // Check if user with the provided name exists
     if (!user) {
