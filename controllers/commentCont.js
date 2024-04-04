@@ -65,25 +65,10 @@ exports.updateComment = async (req, res) => {
     if (!comment) {
       return res.status(404).json({ message: 'comment not found' });
     }
-    // comment.name = req.body.name;
-    // comment.comment = req.body.comment;
-    //
-    // const updatedComment = await comment.save();
     res.status(200).json(comment);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
-  //try {
-  //  const recipe = await Recipe.findByIdAndUpdate(req.params.id, req.body, {
-  //    new: true
-  //  });
-  //  if (!recipe) {
-  //    return res.status(404).json({ message: 'Recipe not found' });
-  //  }
-  //  res.json(recipe);
-  //} catch (error) {
-  //  res.status(500).json({ message: error.message });
-  //}
 };
 
 //DeleteIngredient with Validation

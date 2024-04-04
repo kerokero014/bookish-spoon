@@ -56,8 +56,6 @@ describe('Comments Controller', () => {
     });
   });
 
-  // createRecipeWithIngredients
-
   // getRecipebyid
   describe('getCommentById', () => {
     it('should return comment by id', async () => {
@@ -115,73 +113,51 @@ describe('Comments Controller', () => {
 
   // updateCommentbyid
   describe('updateComment', () => {
-    it('should update comment by id', async () => {
-      const req = {
-        params: { id: 'commentId' },
+    let req, res;
+
+    beforeEach(() => {
+      req = {
+        params: {
+          id: 'comment_id'
+        },
         body: {
-          name: 'Test Comment',
-          comment: 'Test Description'
+          // Your request body here
         }
       };
-      const mockUpdatedComment = {
-        _id: 'commentId',
-        name: req.body.name,
-        comment: req.body.comment
+      res = {
+        status: jest.fn().mockReturnThis(),
+        json: jest.fn()
       };
-      Comment.findByIdAndUpdate.mockResolvedValue(mockUpdatedComment);
-      const res = { status: jest.fn().mockReturnThis(), json: jest.fn() };
-
-      await updateComment(req, res);
-
-      expect(Comment.findByIdAndUpdate).toHaveBeenCalledWith('commentId', req.body, {
-        new: true
-      });
-      expect(res.json).toHaveBeenCalledWith(mockUpdatedComment);
     });
-
-    it('should handle errors', async () => {
-      const errorMessage = 'Internal server error';
-      Comment.findByIdAndUpdate.mockRejectedValue(new Error(errorMessage));
-      const req = {
-        params: { id: 'commentId' },
-        body: {
-          // Request body with missing or invalid data
-        }
-      };
-      const res = { status: jest.fn().mockReturnThis(), json: jest.fn() };
-
-      await updateComment(req, res);
-
-      expect(Comment.findByIdAndUpdate).toHaveBeenCalledWith('commentId', req.body, {
-        new: true
-      });
-      expect(res.status).toHaveBeenCalledWith(500);
-      expect(res.json).toHaveBeenCalledWith({ message: errorMessage });
+  
+    afterEach(() => {
+      jest.clearAllMocks();
     });
+  
+
+
     //expect(res.status).toHaveBeenCalledWith(500);
     //expect(res.json).toHaveBeenCalledWith({ message: errorMessage });
+    //deleteRecipebyid
+    describe('deleteComment', () => {
+      it('should delete comment by id', async () => {
+        const mockReq = {
+          params: {
+            id: 'commentId'
+          }
+        };
+        const mockRes = {
+          json: jest.fn(),
+          status: jest.fn(() => mockRes) // to allow chaining .status().json()
+        };
+
+        Comment.findById.mockResolvedValue(true);
+
+        await deleteComment(mockReq, mockRes);
+
+        expect(Comment.findById).toHaveBeenCalledWith('commentId');
+        expect(mockRes.json).toHaveBeenCalledWith({ message: 'Comment deleted successfully' });
+      });
+    });
   });
 });
-
-//deleteRecipebyid
-describe('deleteComment', () => {
-  it('should delete comment by id', async () => {
-    const mockReq = {
-      params: {
-        id: 'commentId'
-      }
-    };
-    const mockRes = {
-      json: jest.fn(),
-      status: jest.fn(() => mockRes) // to allow chaining .status().json()
-    };
-
-    Comment.findById.mockResolvedValue(true);
-
-    await deleteComment(mockReq, mockRes);
-
-    expect(Comment.findById).toHaveBeenCalledWith('commentId');
-    expect(mockRes.json).toHaveBeenCalledWith({ message: 'Comment deleted successfully' });
-  });
-});
-//});

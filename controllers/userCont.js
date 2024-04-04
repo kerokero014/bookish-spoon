@@ -9,7 +9,6 @@
 
 const User = require('../schemas/userSchema');
 const mongoose = require('mongoose');
-const bcrypt = require('bcryptjs');
 
 // Create a new user
 exports.createUser = async (req, res) => {

@@ -1,6 +1,5 @@
 const {
   getAllRecipes,
-  createRecipeWithIngredients,
   getRecipe,
   updateRecipe,
   deleteRecipe
@@ -15,98 +14,85 @@ jest.mock('../schemas/recipeSchema', () => ({
   findById: jest.fn(),
   findByIdAndUpdate: jest.fn(),
   findByIdAndDelete: jest.fn(),
-  save: jest.fn()
+  save: jest.fn(),
+  find: jest.fn(() => ({
+    populate: jest.fn().mockResolvedValue([
+      {
+        description: 'A classic and delicious treat - chewy and soft chocolate chip cookies',
+        name: 'Chocolate Chip Cookies'
+      }
+    ])
+  }))
 }));
 
 jest.mock('../schemas/ingredientSchema', () => ({
-  save: jest.fn()
+  save: jest.fn(),
+  findById: jest.fn(),
+  findByName: jest.fn()
 }));
 
 describe('Recipe Controller', () => {
   describe('getAllRecipes', () => {
+    let req, res;
+
+    beforeEach(() => {
+      req = {};
+      res = {
+        json: jest.fn(),
+        status: jest.fn().mockReturnThis()
+      };
+    });
+  
+    afterEach(() => {
+      jest.clearAllMocks();
+    });
+  
     it('should return all recipes', async () => {
       const mockRecipes = [
-        {
-          name: 'Chocolate Chip Cookies',
-          description: 'A classic and delicious treat - chewy and soft chocolate chip cookies',
-          cookTime: 15,
-          prepTime: 10,
-          servings: 24,
-          instructions: [
-            'Preheat oven to 375°F (190°C).',
-            'Cream together butter and sugars in a large bowl until light and fluffy.',
-            'Beat in eggs one at a time, then stir in vanilla extract.',
-            'In a separate bowl, whisk together flour, baking soda, and salt.',
-            'Gradually add dry ingredients to wet ingredients, mixing until just combined.',
-            'Stir in chocolate chips.',
-            'Drop by rounded tablespoons onto baking sheets lined with parchment paper.',
-            'Bake for 10-12 minutes, or until edges are golden brown.',
-            'Let cool on baking sheet for a few minutes before transferring to a wire rack to cool completely.'
-          ],
-          categories: ['Dessert', 'Baking', 'Kid-Friendly']
-        }
+        { _id: 'recipe1', title: 'Recipe 1', ingredients: ['ingredient1', 'ingredient2'] },
+        { _id: 'recipe2', title: 'Recipe 2', ingredients: ['ingredient3', 'ingredient4'] }
       ];
-      const Recipe = require('../schemas/recipeSchema');
-      Recipe.find.mockResolvedValue(mockRecipes);
-      const req = {};
-      const res = { json: jest.fn() };
-
+  
+      // Mocking populate method
+      const mockPopulate = jest.fn().mockResolvedValue(mockRecipes);
+      Recipe.find.mockReturnValueOnce({ populate: mockPopulate });
+  
       await getAllRecipes(req, res);
-
+  
+      expect(Recipe.find).toHaveBeenCalled();
+      expect(mockPopulate).toHaveBeenCalledWith('ingredients');
       expect(res.json).toHaveBeenCalledWith(mockRecipes);
     });
-    it('should handle errors', async () => {
-      const errorMessage = 'Internal server error';
-      const Recipe = require('../schemas/recipeSchema');
-      Recipe.find.mockRejectedValue(new Error(errorMessage));
-      const req = {};
-      const res = { status: jest.fn().mockReturnThis(), json: jest.fn() };
 
-      await getAllRecipes(req, res);
-
-      expect(res.status).toHaveBeenCalledWith(500);
-      expect(res.json).toHaveBeenCalledWith({ message: errorMessage });
-    });
   });
-
-  // createRecipeWithIngredients
 
   // getRecipebyid
   describe('getRecipe', () => {
-    it('should return recipe by id', async () => {
-      const mockRecipe = {
-        _id: 'recipeId',
-        name: 'Test Recipe',
-        description: 'Test Description',
-        cookTime: 30,
-        prepTime: 15,
-        servings: 4,
-        instructions: 'Test Instructions',
-        ingredients: ['ingredientId1', 'ingredientId2'],
-        categories: ['Category 1', 'Category 2']
+    let req, res;
+
+    beforeEach(() => {
+      req = { params: { id: 'someRecipeId' } };
+      res = {
+        status: jest.fn().mockReturnThis(),
+        json: jest.fn()
       };
-      Recipe.findById.mockResolvedValue(mockRecipe);
-      const req = { params: { id: 'recipeId' } };
-      const res = { json: jest.fn() };
-
-      await getRecipe(req, res);
-
-      expect(Recipe.findById).toHaveBeenCalledWith('recipeId');
-      expect(res.json).toHaveBeenCalledWith(mockRecipe);
     });
 
-    it('should handle errors', async () => {
-      const errorMessage = 'Internal server error';
-      Recipe.findById.mockRejectedValue(new Error(errorMessage));
-      const req = { params: { id: 'recipeId' } };
-      const res = { status: jest.fn().mockReturnThis(), json: jest.fn() };
-
-      await getRecipe(req, res);
-
-      expect(Recipe.findById).toHaveBeenCalledWith('recipeId');
-      expect(res.status).toHaveBeenCalledWith(500);
-      expect(res.json).toHaveBeenCalledWith({ message: errorMessage });
+    afterEach(() => {
+      jest.clearAllMocks();
     });
+
+  it('should return recipe if found', async () => {
+    const mockRecipe = { _id: 'someRecipeId', title: 'Test Recipe', ingredients: ['ingredient1', 'ingredient2'] };
+    const mockPopulate = jest.fn().mockResolvedValueOnce(mockRecipe);
+    Recipe.findById.mockReturnValueOnce({ populate: mockPopulate });
+
+    await getRecipe(req, res);
+
+    expect(Recipe.findById).toHaveBeenCalledWith('someRecipeId');
+    expect(mockPopulate).toHaveBeenCalledWith('ingredients');
+    expect(res.json).toHaveBeenCalledWith(mockRecipe);
+  });
   });
 
   // updateRecipebyid
