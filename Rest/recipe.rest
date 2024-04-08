@@ -15,58 +15,92 @@ POST http://localhost:3000/recipes
 Content-Type: application/json
 
 {
-  "name": "Pão de Queijo",
-  "description": "A traditional Brazilian cheese bread, crispy on the outside and chewy on the inside, perfect as a snack or accompaniment.",
-  "cookTime": 25,
-  "prepTime": 15,
-  "servings": 20,
+  "name": "Spanakopita Triangles",
+  "description": "Spanakopita triangles are savory Greek pastries filled with spinach and feta cheese, wrapped in flaky phyllo dough. They make a delightful appetizer or snack, bursting with Mediterranean flavors.",
+  "cookTime": 30,
+  "prepTime": 20,
+  "servings": 24,
   "instructions": [
-    "Preheat your oven to 375°F (190°C). Grease a mini muffin tin or line it with paper liners.",
-    "In a saucepan, combine milk, water, and oil. Bring to a gentle boil over medium heat.",
-    "Slowly add tapioca flour to the liquid mixture while stirring constantly. Cook and stir until the mixture forms a thick, sticky dough.",
-    "Remove from heat and let the dough cool slightly.",
-    "Once the dough is cool enough to handle, mix in the eggs one at a time until fully incorporated.",
-    "Stir in grated cheese until well combined.",
-    "Spoon the dough into the prepared mini muffin tin, filling each cup about 3/4 full.",
-    "Bake in the preheated oven for 20-25 minutes or until the pão de queijo are puffed up and golden brown.",
+    "Preheat your oven to 375°F (190°C). Line a baking sheet with parchment paper.",
+    "In a large skillet, heat olive oil over medium heat. Add chopped onion and garlic, sauté until softened, about 5 minutes.",
+    "Add chopped spinach to the skillet and cook until wilted, about 3-5 minutes. Remove from heat and let cool.",
+    "In a mixing bowl, combine cooled spinach mixture, crumbled feta cheese, beaten eggs, dill, salt, and pepper. Mix until well combined.",
+    "Unwrap the phyllo dough and cover it with a damp towel to prevent drying out. Take one sheet of phyllo dough and brush it lightly with melted butter. Place another sheet on top and repeat the process until you have 6 layers.",
+    "Cut the phyllo stack lengthwise into 4 strips. Place a spoonful of the spinach and feta mixture at the bottom of each strip. Fold one corner of the phyllo dough over the filling to form a triangle, continue folding until you reach the end of the strip. Repeat with the remaining strips and filling.",
+    "Place the assembled triangles on the prepared baking sheet. Brush the tops with melted butter.",
+    "Bake in the preheated oven for 20-25 minutes or until golden brown and crispy.",
     "Remove from the oven and let cool for a few minutes before serving.",
-    "Enjoy the pão de queijo warm as a delicious snack or side dish!"
+    "Enjoy the spanakopita triangles warm as a delightful appetizer or snack!"
   ],
   "ingredients": [
     {
-      "name": "Milk",
-      "quantity": 1,
-      "unit": "cup"
-    },
-    {
-      "name": "Water",
-      "quantity": 1,
-      "unit": "cup"
-    },
-    {
-      "name": "Vegetable oil",
-      "quantity": 1,
-      "unit": "cup"
-    },
-    {
-      "name": "Tapioca flour",
+      "name": "Olive oil",
       "quantity": 2,
-      "unit": "cups"
+      "unit": "tablespoons"
+    },
+    {
+      "name": "Onion",
+      "quantity": 1,
+      "unit": "medium",
+      "notes": "chopped"
+    },
+    {
+      "name": "Garlic",
+      "quantity": 2,
+      "unit": "cloves",
+      "notes": "minced"
+    },
+    {
+      "name": "Spinach",
+      "quantity": 10,
+      "unit": "ounces",
+      "notes": "fresh, chopped"
+    },
+    {
+      "name": "Feta cheese",
+      "quantity": 8,
+      "unit": "ounces",
+      "notes": "crumbled"
     },
     {
       "name": "Eggs",
       "quantity": 2,
-      "unit": "large"
+      "unit": "large",
+      "notes": "beaten"
     },
     {
-      "name": "Parmesan cheese",
+      "name": "Dill",
       "quantity": 1,
+      "unit": "tablespoon",
+      "notes": "fresh, chopped"
+    },
+    {
+      "name": "Salt",
+      "quantity": 0.5,
+      "unit": "teaspoon"
+    },
+    {
+      "name": "Black pepper",
+      "quantity": 0.25,
+      "unit": "teaspoon",
+      "notes": "freshly ground"
+    },
+    {
+      "name": "Phyllo dough",
+      "quantity": 12,
+      "unit": "sheets",
+      "notes": "thawed if frozen"
+    },
+    {
+      "name": "Butter",
+      "quantity": 0.5,
       "unit": "cup",
-      "notes": "grated"
+      "notes": "melted"
     }
   ],
-  "categories": ["Brazilian", "Snack", "Bread"]
+  "categories": ["Greek", "Appetizer", "Snack", "Pastry"]
 }
+
 
 
 //{
