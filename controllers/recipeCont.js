@@ -85,7 +85,17 @@ exports.getRecipe = async (req, res) => {
 // Controller for updating a recipe by ID
 exports.updateRecipe = async (req, res) => {
   try {
-    const recipe = await Recipe.findByIdAndUpdate(req.params.id, req.body, {
+    const updateData = {
+      name: req.body.name,
+      description: req.body.description,
+      cookTime: req.body.cookTime,
+      prepTime: req.body.prepTime,
+      servings: req.body.servings,
+      instructions: req.body.instructions,
+      categories: req.body.categories
+    };
+
+    const recipe = await Recipe.findByIdAndUpdate(req.params.id, updateData, {
       new: true
     });
     if (!recipe) {

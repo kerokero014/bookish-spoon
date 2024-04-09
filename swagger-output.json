@@ -104,6 +104,36 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "any"
+                },
+                "description": {
+                  "example": "any"
+                },
+                "cookTime": {
+                  "example": "any"
+                },
+                "prepTime": {
+                  "example": "any"
+                },
+                "servings": {
+                  "example": "any"
+                },
+                "instructions": {
+                  "example": "any"
+                },
+                "categories": {
+                  "example": "any"
+                }
+              }
+            }
           }
         ],
         "responses": {
