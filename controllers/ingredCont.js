@@ -37,8 +37,9 @@ exports.getIngredientById = async (req, res) => {
 exports.createIngredient = async (req, res) => {
   const ingredient = new Ingredient({
     name: req.body.name,
-    type: req.body.type,
-    price: req.body.price
+    type: req.body.quantity,
+    price: req.body.unit,
+    notes: req.body.notes
   });
 
   try {
@@ -57,8 +58,9 @@ exports.updateIngredient = async (req, res) => {
       return res.status(404).json({ message: 'Ingredient not found' });
     }
     ingredient.name = req.body.name;
-    ingredient.type = req.body.type;
-    ingredient.price = req.body.price;
+    ingredient.quantity = req.body.quantity;
+    ingredient.unit = req.body.unit;
+    ingredient.notes = req.body.notes;
 
     const updatedIngredient = await ingredient.save();
     res.status(200).json(updatedIngredient);

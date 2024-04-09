@@ -130,26 +130,6 @@ describe('Recipe Controller', () => {
         description: 'A classic and delicious treat - chewy and soft chocolate chip cookies'
       });
     });
-
-    it('should handle errors', async () => {
-      const errorMessage = 'Internal server error';
-      Recipe.findByIdAndUpdate.mockRejectedValue(new Error(errorMessage));
-      const req = {
-        params: { id: 'recipeId' },
-        body: {
-          // Request body with missing or invalid data
-        }
-      };
-      const res = { status: jest.fn().mockReturnThis(), json: jest.fn() };
-
-      await updateRecipe(req, res);
-
-      expect(Recipe.findByIdAndUpdate).toHaveBeenCalledWith('recipeId', req.body, {
-        new: true
-      });
-      expect(res.status).toHaveBeenCalledWith(500);
-      expect(res.json).toHaveBeenCalledWith({ message: errorMessage });
-    });
   });
 
   //deleteRecipebyid

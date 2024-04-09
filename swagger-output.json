@@ -394,10 +394,13 @@
                 "name": {
                   "example": "any"
                 },
-                "type": {
+                "quantity": {
                   "example": "any"
                 },
-                "price": {
+                "unit": {
+                  "example": "any"
+                },
+                "notes": {
                   "example": "any"
                 }
               }
@@ -455,10 +458,13 @@
                 "name": {
                   "example": "any"
                 },
-                "type": {
+                "quantity": {
                   "example": "any"
                 },
-                "price": {
+                "unit": {
+                  "example": "any"
+                },
+                "notes": {
                   "example": "any"
                 }
               }
