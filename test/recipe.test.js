@@ -98,32 +98,34 @@ describe('Recipe Controller', () => {
   // updateRecipebyid
   describe('updateRecipe', () => {
     it('should update recipe by id', async () => {
-      const req = {
-        params: { id: 'recipeId' },
+      const mockReq = {
+        params: {
+          id: 'recipeId'
+        },
         body: {
-          name: 'Test Recipe',
-          description: 'Test Description',
-          cookTime: 30,
-          prepTime: 15,
-          servings: 4,
-          instructions: 'Test Instructions',
-          ingredients: ['ingredientId1', 'ingredientId2'],
-          categories: ['Category 1', 'Category 2']
+          name: 'Chocolate Chip Cookies',
+          description: 'A classic and delicious treat - chewy and soft chocolate chip cookies'
         }
       };
-      const mockUpdatedRecipe = {
-        _id: 'recipeId',
-        ...req.body
+      const mockRes = {
+        json: jest.fn(),
+        status: jest.fn(() => mockRes) // to allow chaining .status().json()
       };
-      Recipe.findByIdAndUpdate.mockResolvedValue(mockUpdatedRecipe);
-      const res = { json: jest.fn() };
 
-      await updateRecipe(req, res);
+      Recipe.findByIdAndUpdate.mockResolvedValue({
+        name: 'Chocolate Chip Cookies',
+        description: 'A classic and delicious treat - chewy and soft chocolate chip cookies'
+      });
 
-      expect(Recipe.findByIdAndUpdate).toHaveBeenCalledWith('recipeId', req.body, {
+      await updateRecipe(mockReq, mockRes);
+
+      expect(Recipe.findByIdAndUpdate).toHaveBeenCalledWith('recipeId', mockReq.body, {
         new: true
       });
-      expect(res.json).toHaveBeenCalledWith(mockUpdatedRecipe);
+      expect(mockRes.json).toHaveBeenCalledWith({
+        name: 'Chocolate Chip Cookies',
+        description: 'A classic and delicious treat - chewy and soft chocolate chip cookies'
+      });
     });
 
     it('should handle errors', async () => {
