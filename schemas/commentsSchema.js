@@ -20,8 +20,7 @@ const CommentsSchema = new Schema(
       type: Date,
       default: Date.now
     },
-   recipeid:
-    {
+    recipeid: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Recipe',
       required: [true, 'Recipe ID is required']

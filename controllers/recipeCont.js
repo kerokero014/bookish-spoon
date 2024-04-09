@@ -64,7 +64,11 @@ exports.createRecipeWithIngredients = async (req, res) => {
 
     res.status(201).json(savedRecipe);
   } catch (error) {
-    console.error('Error creating recipe with ingredients:', error);
+    if (error.name === 'ValidationError') {
+      console.error('Validation Error:', error.message);
+    } else {
+      console.error('Error creating recipe with ingredients:', error);
+    }
     res.status(500).json({ message: 'Internal server error' });
   }
 };
@@ -103,7 +107,12 @@ exports.updateRecipe = async (req, res) => {
     }
     res.json(recipe);
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    if (error.name === 'ValidationError') {
+      console.error('Validation Error:', error.message);
+    } else {
+      console.error('Error creating recipe with ingredients:', error);
+    }
+    res.status(500).json({ message: 'Internal server error' });
   }
 };
 

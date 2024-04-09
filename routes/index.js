@@ -15,7 +15,7 @@ const jwtCheck = auth({
 router.use('/recipes', require('./recipeRoutes'));
 //
 ////routes for users
-router.use('/users', jwtCheck,require('./userRoutes'));
+router.use('/users', jwtCheck, require('./userRoutes'));
 //
 ////routes for ingredients
 router.use('/ingredients', require('./ingredientRoute'));

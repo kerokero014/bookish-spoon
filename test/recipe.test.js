@@ -42,28 +42,27 @@ describe('Recipe Controller', () => {
         status: jest.fn().mockReturnThis()
       };
     });
-  
+
     afterEach(() => {
       jest.clearAllMocks();
     });
-  
+
     it('should return all recipes', async () => {
       const mockRecipes = [
         { _id: 'recipe1', title: 'Recipe 1', ingredients: ['ingredient1', 'ingredient2'] },
         { _id: 'recipe2', title: 'Recipe 2', ingredients: ['ingredient3', 'ingredient4'] }
       ];
-  
+
       // Mocking populate method
       const mockPopulate = jest.fn().mockResolvedValue(mockRecipes);
       Recipe.find.mockReturnValueOnce({ populate: mockPopulate });
-  
+
       await getAllRecipes(req, res);
-  
+
       expect(Recipe.find).toHaveBeenCalled();
       expect(mockPopulate).toHaveBeenCalledWith('ingredients');
       expect(res.json).toHaveBeenCalledWith(mockRecipes);
     });
-
   });
 
   // getRecipebyid
@@ -82,17 +81,21 @@ describe('Recipe Controller', () => {
       jest.clearAllMocks();
     });
 
-  it('should return recipe if found', async () => {
-    const mockRecipe = { _id: 'someRecipeId', title: 'Test Recipe', ingredients: ['ingredient1', 'ingredient2'] };
-    const mockPopulate = jest.fn().mockResolvedValueOnce(mockRecipe);
-    Recipe.findById.mockReturnValueOnce({ populate: mockPopulate });
+    it('should return recipe if found', async () => {
+      const mockRecipe = {
+        _id: 'someRecipeId',
+        title: 'Test Recipe',
+        ingredients: ['ingredient1', 'ingredient2']
+      };
+      const mockPopulate = jest.fn().mockResolvedValueOnce(mockRecipe);
+      Recipe.findById.mockReturnValueOnce({ populate: mockPopulate });
 
-    await getRecipe(req, res);
+      await getRecipe(req, res);
 
-    expect(Recipe.findById).toHaveBeenCalledWith('someRecipeId');
-    expect(mockPopulate).toHaveBeenCalledWith('ingredients');
-    expect(res.json).toHaveBeenCalledWith(mockRecipe);
-  });
+      expect(Recipe.findById).toHaveBeenCalledWith('someRecipeId');
+      expect(mockPopulate).toHaveBeenCalledWith('ingredients');
+      expect(res.json).toHaveBeenCalledWith(mockRecipe);
+    });
   });
 
   // updateRecipebyid

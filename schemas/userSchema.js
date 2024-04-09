@@ -27,7 +27,7 @@ const userSchema = new Schema(
     },
     Auth0Id: {
       type: String,
-      default: '',
+      default: ''
     },
     recipes: [
       {

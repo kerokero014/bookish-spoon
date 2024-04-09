@@ -129,12 +129,10 @@ describe('Comments Controller', () => {
         json: jest.fn()
       };
     });
-  
+
     afterEach(() => {
       jest.clearAllMocks();
     });
-  
-
 
     //expect(res.status).toHaveBeenCalledWith(500);
     //expect(res.json).toHaveBeenCalledWith({ message: errorMessage });
