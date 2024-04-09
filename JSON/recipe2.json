@@ -1,23 +1,7 @@
-//Uncomment as you use them then comment out the ones you do not need
-
-//get all recipes
-###
-GET http://localhost:3000/recipes
-
-
-//get a single recipe
-//GET http://localhost:3000/recipes/65e66d465af2d1169ad696a0 
-
-
-//create a recipe
-###
-POST http://localhost:3000/recipes
-Content-Type: application/json
-
 {
   "name": "Mango Coconut Chia Pudding",
   "description": "Mango coconut chia pudding is a tropical-inspired, dairy-free dessert or breakfast option.",
-  "cookTime": 2,
+  "cookTime": 0,
   "prepTime": 5,
   "servings": 4,
   "instructions": [
@@ -59,42 +43,22 @@ Content-Type: application/json
     },
     {
       "name": "Mango slices",
-      "quantity": 1,
+      "quantity": null,
       "unit": "for garnish",
       "notes": "optional"
     },
     {
       "name": "Shredded coconut",
-      "quantity": 1,
+      "quantity": null,
       "unit": "for garnish",
       "notes": "optional"
     },
     {
       "name": "Mint leaves",
-      "quantity": 3,
+      "quantity": null,
       "unit": "for garnish",
       "notes": "optional"
     }
   ],
   "categories": ["Dessert", "Breakfast", "Vegan", "Gluten-Free"]
 }
-
-
-
-
-//{
-//    referer to JSON foler for example input
-//}
-
-
-//update a recipe
-//PUT http://localhost:3000/recipes/ <=id
-//Content-Type: application/json
-
-//{
-//    referer to JSON foler for example input
-//}
-
-//delete a recipe
-###
-DELETE http://localhost:3000/recipes/6615b2ba523e267d22b64ff0
