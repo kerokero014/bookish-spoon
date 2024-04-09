@@ -1,6 +1,7 @@
 // Comment or uncomment the HTTP request you want to test
 
 //Get all ingredients
+###
 GET  http://localhost:3000/ingredients
 
 
@@ -9,12 +10,16 @@ GET  http://localhost:3000/ingredients
 
 
 //create ingredient
-//POST  http://localhost:3000/ingredients
-//content-type: application/json
+###
+POST  http://localhost:3000/ingredients
+content-type: application/json
 
-// {
-    //Refer to JSON folder for input exaple
-// }
+{
+  "name": "Ripe mango",
+  "quantity": 2,
+  "unit": "cups",
+  "notes": "peeled and chopped"
+}
 
 
 //update ingredient
